@@ -9,27 +9,12 @@ $DOCS$
 class $MODEL_NAME$Repository extends BaseRepository
 {
     /**
-     * @var array
-     */
-    protected $fieldSearchable = [
-        $FIELDS$
-    ];
-
-    /**
-     * Return searchable fields
+     * UserRepository constructor.
      *
-     * @return array
+     * @param  User  $model
      */
-    public function getFieldsSearchable()
+    public function __construct($MODEL_NAME$ $model)
     {
-        return $this->fieldSearchable;
-    }
-
-    /**
-     * Configure the Model
-     **/
-    public function model()
-    {
-        return $MODEL_NAME$::class;
+        $this->model = $model;
     }
 }

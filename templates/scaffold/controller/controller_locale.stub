@@ -1,16 +1,16 @@
 <?php
 
-namespace $NAMESPACE_CONTROLLER$;
+namespace $NAMESPACE_BACKEND_CONTROLLER$;
 
 use $NAMESPACE_REQUEST$\Create$MODEL_NAME$Request;
 use $NAMESPACE_REQUEST$\Update$MODEL_NAME$Request;
 use $NAMESPACE_REPOSITORY$\$MODEL_NAME$Repository;
-use $NAMESPACE_APP$\Http\Controllers\AppBaseController;
+use $NAMESPACE_APP$\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
 
-class $MODEL_NAME$Controller extends AppBaseController
+class $MODEL_NAME$Controller extends Controller
 {
     /** @var  $MODEL_NAME$Repository */
     private $$MODEL_NAME_CAMEL$Repository;
@@ -72,7 +72,7 @@ class $MODEL_NAME$Controller extends AppBaseController
      */
     public function show($id)
     {
-        $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
+        $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->getById($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             Flash::error(__('messages.not_found', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
@@ -92,7 +92,7 @@ class $MODEL_NAME$Controller extends AppBaseController
      */
     public function edit($id)
     {
-        $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
+        $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->getById($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             Flash::error(__('messages.not_found', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
@@ -113,7 +113,7 @@ class $MODEL_NAME$Controller extends AppBaseController
      */
     public function update($id, Update$MODEL_NAME$Request $request)
     {
-        $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
+        $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->getById($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             Flash::error(__('messages.not_found', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));
@@ -139,7 +139,7 @@ class $MODEL_NAME$Controller extends AppBaseController
      */
     public function destroy($id)
     {
-        $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
+        $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->getById($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             Flash::error(__('messages.not_found', ['model' => __('models/$MODEL_NAME_PLURAL_CAMEL$.singular')]));

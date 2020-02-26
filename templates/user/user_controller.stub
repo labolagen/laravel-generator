@@ -1,161 +1,149 @@
 <?php
 
-namespace $NAMESPACE_CONTROLLER$;
+namespace $NAMESPACE_CONTROLLER$\Backend\Auth\User;
 
-use $NAMESPACE_REQUEST$\CreateUserRequest;
-use $NAMESPACE_REQUEST$\UpdateUserRequest;
-use $NAMESPACE_REPOSITORY$\UserRepository;
-use $NAMESPACE_CONTROLLER$\AppBaseController;
-use Illuminate\Http\Request;
-use Flash;
-use Response;
-use Hash;
+use App\Events\Backend\Auth\User\UserDeleted;
+use $NAMESPACE_CONTROLLER$\Controller;
+use $NAMESPACE_REQUEST$\Backend\Auth\User\ManageUserRequest;
+use $NAMESPACE_REQUEST$\Backend\Auth\User\StoreUserRequest;
+use $NAMESPACE_REQUEST$\Backend\Auth\User\UpdateUserRequest;
+use $NAMESPACE_MODEL$\Auth\User;
+use $NAMESPACE_REPOSITORY$\Backend\Auth\PermissionRepository;
+use $NAMESPACE_REPOSITORY$\Backend\Auth\RoleRepository;
+use $NAMESPACE_REPOSITORY$\Backend\Auth\UserRepository;
 
-class UserController extends AppBaseController
+/**
+ * Class UserController.
+ */
+class UserController extends Controller
 {
-    /** @var $userRepository UserRepository */
-    private $userRepository;
-
-    public function __construct(UserRepository $userRepo)
-    {
-        $this->userRepository = $userRepo;
-    }
-
     /**
-     * Display a listing of the User.
-     *
-     * @param Request $request
-     *
-     * @return Response
+     * @var UserRepository
      */
-    public function index(Request $request)
-    {
-        $users = $this->userRepository->all();
-
-        return view('users.index')->with('users', $users);
-    }
+    protected $userRepository;
 
     /**
-     * Show the form for creating a new User.
+     * UserController constructor.
      *
-     * @return Response
+     * @param UserRepository $userRepository
      */
-    public function create()
+    public function __construct(UserRepository $userRepository)
     {
-        return view('users.create');
+        $this->userRepository = $userRepository;
     }
 
     /**
-     * Store a newly created User in storage.
+     * @param ManageUserRequest $request
      *
-     * @param CreateUserRequest $request
-     *
-     * @return Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function store(CreateUserRequest $request)
+    public function index(ManageUserRequest $request)
     {
-        $input = $request->all();
-        $input['password'] = Hash::make($input['password']);
-        $user = $this->userRepository->create($input);
-
-        Flash::success('User saved successfully.');
-
-        return redirect(route('users.index'));
+        return view('backend.auth.user.index')
+            ->withUsers($this->userRepository->getActivePaginated(25, 'id', 'asc'));
     }
 
     /**
-     * Display the specified User.
+     * @param ManageUserRequest    $request
+     * @param RoleRepository       $roleRepository
+     * @param PermissionRepository $permissionRepository
      *
-     * @param int $id
-     *
-     * @return Response
+     * @return mixed
      */
-    public function show($id)
+    public function create(ManageUserRequest $request, RoleRepository $roleRepository, PermissionRepository $permissionRepository)
     {
-        $user = $this->userRepository->find($id);
-
-        if (empty($user)) {
-            Flash::error('User not found');
-
-            return redirect(route('users.index'));
-        }
-
-        return view('users.show')->with('user', $user);
+        return view('backend.auth.user.create')
+            ->withRoles($roleRepository->with('permissions')->get(['id', 'name']))
+            ->withPermissions($permissionRepository->get(['id', 'name']));
     }
 
     /**
-     * Show the form for editing the specified User.
+     * @param StoreUserRequest $request
      *
-     * @param int $id
-     *
-     * @return Response
+     * @throws \Throwable
+     * @return mixed
      */
-    public function edit($id)
+    public function store(StoreUserRequest $request)
     {
-        $user = $this->userRepository->find($id);
+        $this->userRepository->create($request->only(
+            'first_name',
+            'last_name',
+            'email',
+            'password',
+            'active',
+            'confirmed',
+            'confirmation_email',
+            'roles',
+            'permissions'
+        ));
 
-        if (empty($user)) {
-            Flash::error('User not found');
-
-            return redirect(route('users.index'));
-        }
-
-        return view('users.edit')->with('user', $user);
+        return redirect()->route('admin.auth.user.index')->withFlashSuccess(__('alerts.backend.users.created'));
     }
 
     /**
-     * Update the specified User in storage.
+     * @param ManageUserRequest $request
+     * @param User              $user
      *
-     * @param int $id
+     * @return mixed
+     */
+    public function show(ManageUserRequest $request, User $user)
+    {
+        return view('backend.auth.user.show')
+            ->withUser($user);
+    }
+
+    /**
+     * @param ManageUserRequest    $request
+     * @param RoleRepository       $roleRepository
+     * @param PermissionRepository $permissionRepository
+     * @param User                 $user
+     *
+     * @return mixed
+     */
+    public function edit(ManageUserRequest $request, RoleRepository $roleRepository, PermissionRepository $permissionRepository, User $user)
+    {
+        return view('backend.auth.user.edit')
+            ->withUser($user)
+            ->withRoles($roleRepository->get())
+            ->withUserRoles($user->roles->pluck('name')->all())
+            ->withPermissions($permissionRepository->get(['id', 'name']))
+            ->withUserPermissions($user->permissions->pluck('name')->all());
+    }
+
+    /**
      * @param UpdateUserRequest $request
+     * @param User              $user
      *
-     * @return Response
+     * @throws \App\Exceptions\GeneralException
+     * @throws \Throwable
+     * @return mixed
      */
-    public function update($id, UpdateUserRequest $request)
+    public function update(UpdateUserRequest $request, User $user)
     {
-        $user = $this->userRepository->find($id);
+        $this->userRepository->update($user, $request->only(
+            'first_name',
+            'last_name',
+            'email',
+            'roles',
+            'permissions'
+        ));
 
-        if (empty($user)) {
-            Flash::error('User not found');
-
-            return redirect(route('users.index'));
-        }
-        $input =  $request->all();
-        if (!empty($input['password'])) {
-            $input['password'] = Hash::make($input['password']);
-        } else {
-            unset($input['password']);
-        }
-        $user = $this->userRepository->update($input, $id);
-
-        Flash::success('User updated successfully.');
-
-        return redirect(route('users.index'));
+        return redirect()->route('admin.auth.user.index')->withFlashSuccess(__('alerts.backend.users.updated'));
     }
 
     /**
-     * Remove the specified User from storage.
-     *
-     * @param int $id
+     * @param ManageUserRequest $request
+     * @param User              $user
      *
      * @throws \Exception
-     *
-     * @return Response
+     * @return mixed
      */
-    public function destroy($id)
+    public function destroy(ManageUserRequest $request, User $user)
     {
-        $user = $this->userRepository->find($id);
+        $this->userRepository->deleteById($user->id);
 
-        if (empty($user)) {
-            Flash::error('User not found');
+        event(new UserDeleted($user));
 
-            return redirect(route('users.index'));
-        }
-
-        $this->userRepository->delete($id);
-
-        Flash::success('User deleted successfully.');
-
-        return redirect(route('users.index'));
+        return redirect()->route('admin.auth.user.deleted')->withFlashSuccess(__('alerts.backend.users.deleted'));
     }
 }

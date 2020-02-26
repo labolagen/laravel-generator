@@ -30,10 +30,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
     {
         $this->publishTestCases();
         $this->publishBaseController();
-        $repositoryPattern = config('infyom.laravel_generator.options.repository_pattern', true);
-        if ($repositoryPattern) {
-            $this->publishBaseRepository();
-        }
+        $this->publishBaseRepository();
         if ($this->option('localized')) {
             $this->publishLocaleFiles();
         }
@@ -96,13 +93,13 @@ class GeneratorPublishCommand extends PublishBaseCommand
 
     private function publishBaseController()
     {
-        $templateData = get_template('app_base_controller', 'laravel-generator');
+        $templateData = get_template('controller', 'laravel-generator');
 
         $templateData = $this->fillTemplate($templateData);
 
         $controllerPath = app_path('Http/Controllers/');
 
-        $fileName = 'AppBaseController.php';
+        $fileName = 'Controller.php';
 
         if (file_exists($controllerPath.$fileName) && !$this->confirmOverwrite($fileName)) {
             return;
@@ -110,7 +107,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
 
         FileUtil::createFile($controllerPath, $fileName, $templateData);
 
-        $this->info('AppBaseController created');
+        $this->info('AppBase controller created');
     }
 
     private function publishBaseRepository()

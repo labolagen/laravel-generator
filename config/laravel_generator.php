@@ -27,7 +27,9 @@ return [
 
         'api_request'       => app_path('Http/Requests/API/'),
 
-        'controller'        => app_path('Http/Controllers/'),
+        'backend_controller'  => app_path('Http/Controllers/Backend'),
+
+        'frontend_controller' => app_path('Http/Controllers/Frontend'),
 
         'api_controller'    => app_path('Http/Controllers/API/'),
 
@@ -63,25 +65,27 @@ return [
 
     'namespace' => [
 
-        'model'             => 'App\Models',
+        'model'               => 'App\Models',
 
-        'datatables'        => 'App\DataTables',
+        'datatables'          => 'App\DataTables',
 
-        'repository'        => 'App\Repositories',
+        'repository'          => 'App\Repositories',
 
-        'controller'        => 'App\Http\Controllers',
+        'backend_controller'  => 'App\Http\Controllers\Backend',
 
-        'api_controller'    => 'App\Http\Controllers\API',
+        'frontend_controller' => 'App\Http\Controllers\Frontend',
 
-        'request'           => 'App\Http\Requests',
+        'api_controller'      => 'App\Http\Controllers\API',
 
-        'api_request'       => 'App\Http\Requests\API',
+        'request'             => 'App\Http\Requests',
 
-        'repository_test'   => 'Tests\Repositories',
+        'api_request'         => 'App\Http\Requests\API',
 
-        'api_test'          => 'Tests\APIs',
+        'repository_test'     => 'Tests\Repositories',
 
-        'tests'             => 'Tests',
+        'api_test'            => 'Tests\APIs',
+
+        'tests'               => 'Tests',
     ],
 
     /*
@@ -91,7 +95,7 @@ return [
     |
     */
 
-    'templates'         => 'adminlte-templates',
+    'templates'         => 'coreui-templates',
 
     /*
     |--------------------------------------------------------------------------
@@ -129,8 +133,6 @@ return [
         'localized' => false,
 
         'tables_searchable_default' => false,
-
-        'repository_pattern' => true,
 
         'excluded_fields' => ['id'], // Array of columns that doesn't required while creating module
     ],

@@ -31,7 +31,6 @@ class LayoutPublishCommand extends PublishBaseCommand
     {
         $this->copyView();
         $this->updateRoutes();
-        $this->publishHomeController();
     }
 
     private function copyView()
@@ -131,25 +130,6 @@ class LayoutPublishCommand extends PublishBaseCommand
         $this->comment("\nRoutes added");
     }
 
-    private function publishHomeController()
-    {
-        $templateData = get_template('home_controller', 'laravel-generator');
-
-        $templateData = $this->fillTemplate($templateData);
-
-        $controllerPath = config('infyom.laravel_generator.path.controller', app_path('Http/Controllers/'));
-
-        $fileName = 'HomeController.php';
-
-        if (file_exists($controllerPath.$fileName) && !$this->confirmOverwrite($fileName)) {
-            return;
-        }
-
-        FileUtil::createFile($controllerPath, $fileName, $templateData);
-
-        $this->info('HomeController created');
-    }
-
     /**
      * Replaces dynamic variables of template.
      *
@@ -160,8 +140,13 @@ class LayoutPublishCommand extends PublishBaseCommand
     private function fillTemplate($templateData)
     {
         $templateData = str_replace(
-            '$NAMESPACE_CONTROLLER$',
-            config('infyom.laravel_generator.namespace.controller'), $templateData
+            '$NAMESPACE_BACKEND_CONTROLLER$',
+            config('infyom.laravel_generator.namespace.backend_controller'), $templateData
+        );
+
+        $templateData = str_replace(
+            '$NAMESPACE_FRONTEND_CONTROLLER$',
+            config('infyom.laravel_generator.namespace.frontend_controller'), $templateData
         );
 
         $templateData = str_replace(

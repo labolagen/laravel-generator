@@ -105,10 +105,8 @@ class BaseCommand extends Command
         }
 
         if (!$this->isSkip('tests') and $this->commandData->getAddOn('tests')) {
-            if ($this->commandData->getOption('repositoryPattern')) {
-                $repositoryTestGenerator = new RepositoryTestGenerator($this->commandData);
-                $repositoryTestGenerator->generate();
-            }
+            $repositoryTestGenerator = new RepositoryTestGenerator($this->commandData);
+            $repositoryTestGenerator->generate();
 
             $apiTestGenerator = new APITestGenerator($this->commandData);
             $apiTestGenerator->generate();
@@ -300,7 +298,6 @@ class BaseCommand extends Command
             ['factory', null, InputOption::VALUE_NONE, 'To generate factory'],
             ['seeder', null, InputOption::VALUE_NONE, 'To generate seeder'],
             ['localized', null, InputOption::VALUE_NONE, 'Localize files.'],
-            ['repositoryPattern', null, InputOption::VALUE_REQUIRED, 'Repository Pattern'],
             ['connection', null, InputOption::VALUE_REQUIRED, 'Specify connection name'],
         ];
     }

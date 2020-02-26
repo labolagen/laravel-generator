@@ -31,11 +31,7 @@ class ControllerGenerator extends BaseGenerator
     public function generate()
     {
         if ($this->commandData->getAddOn('datatables')) {
-            if ($this->commandData->getOption('repositoryPattern')) {
-                $templateName = 'datatable_controller';
-            } else {
-                $templateName = 'model_datatable_controller';
-            }
+            $templateName = 'datatable_controller';
 
             if ($this->commandData->isLocalizedTemplates()) {
                 $templateName .= '_locale';

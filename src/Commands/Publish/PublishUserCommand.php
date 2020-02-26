@@ -28,14 +28,8 @@ class PublishUserCommand extends PublishBaseCommand
     public function handle()
     {
         $this->copyViews();
-        $this->updateRoutes();
-        $this->updateMenu();
         $this->publishUserController();
-        if (config('infyom.laravel_generator.options.repository_pattern')) {
-            $this->publishUserRepository();
-        }
-        $this->publishCreateUserRequest();
-        $this->publishUpdateUserRequest();
+        $this->publishUserRepository();
     }
 
     private function copyViews()
@@ -72,40 +66,9 @@ class PublishUserCommand extends PublishBaseCommand
         ];
     }
 
-    private function updateRoutes()
-    {
-        $path = config('infyom.laravel_generator.path.routes', base_path('routes/web.php'));
-
-        $routeContents = file_get_contents($path);
-
-        $routesTemplate = get_template('routes.user', 'laravel-generator');
-
-        $routeContents .= "\n\n".$routesTemplate;
-
-        file_put_contents($path, $routeContents);
-        $this->comment("\nUser route added");
-    }
-
-    private function updateMenu()
-    {
-        $viewsPath = config('infyom.laravel_generator.path.views', resource_path('views/'));
-        $templateType = config('infyom.laravel_generator.templates', 'adminlte-templates');
-        $path = $viewsPath.'layouts/menu.blade.php';
-        $menuContents = file_get_contents($path);
-        $sourceFile = file_get_contents(get_template_file_path('scaffold/users/menu', $templateType));
-        $menuContents .= "\n".$sourceFile;
-
-        file_put_contents($path, $menuContents);
-        $this->comment("\nUser Menu added");
-    }
-
     private function publishUserController()
     {
         $templateData = get_template('user/user_controller', 'laravel-generator');
-        if (!config('infyom.laravel_generator.options.repository_pattern')) {
-            $templateData = get_template('user/user_controller_without_repository', 'laravel-generator');
-            $templateData = $this->fillTemplate($templateData);
-        }
 
         $templateData = $this->fillTemplate($templateData);
 
@@ -143,45 +106,6 @@ class PublishUserCommand extends PublishBaseCommand
         $this->info('UserRepository created');
     }
 
-    private function publishCreateUserRequest()
-    {
-        $templateData = get_template('user/create_user_request', 'laravel-generator');
-
-        $templateData = $this->fillTemplate($templateData);
-
-        $requestPath = config('infyom.laravel_generator.path.request', app_path('Http/Requests/'));
-
-        $fileName = 'CreateUserRequest.php';
-
-        FileUtil::createDirectoryIfNotExist($requestPath);
-
-        if (file_exists($requestPath.$fileName) && !$this->confirmOverwrite($fileName)) {
-            return;
-        }
-
-        FileUtil::createFile($requestPath, $fileName, $templateData);
-
-        $this->info('CreateUserRequest created');
-    }
-
-    private function publishUpdateUserRequest()
-    {
-        $templateData = get_template('user/update_user_request', 'laravel-generator');
-
-        $templateData = $this->fillTemplate($templateData);
-
-        $requestPath = config('infyom.laravel_generator.path.request', app_path('Http/Requests/'));
-
-        $fileName = 'UpdateUserRequest.php';
-        if (file_exists($requestPath.$fileName) && !$this->confirmOverwrite($fileName)) {
-            return;
-        }
-
-        FileUtil::createFile($requestPath, $fileName, $templateData);
-
-        $this->info('UpdateUserRequest created');
-    }
-
     /**
      * Replaces dynamic variables of template.
      *
@@ -191,7 +115,9 @@ class PublishUserCommand extends PublishBaseCommand
      */
     private function fillTemplate($templateData)
     {
-        $templateData = str_replace('$NAMESPACE_CONTROLLER$', config('infyom.laravel_generator.namespace.controller'), $templateData);
+        $templateData = str_replace('$NAMESPACE_BACKEND_CONTROLLER$', config('infyom.laravel_generator.namespace.backend_controller'), $templateData);
+
+        $templateData = str_replace('$NAMESPACE_FRONTEND_CONTROLLER$', config('infyom.laravel_generator.namespace.frontend_controller'), $templateData);
 
         $templateData = str_replace('$NAMESPACE_REQUEST$', config('infyom.laravel_generator.namespace.request'), $templateData);
 

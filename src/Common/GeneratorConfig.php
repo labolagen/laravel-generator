@@ -91,7 +91,6 @@ class GeneratorConfig
         'forceMigrate',
         'factory',
         'seeder',
-        'repositoryPattern',
         'localized',
         'connection',
     ];
@@ -154,7 +153,8 @@ class GeneratorConfig
         $this->nsRequest = config('infyom.laravel_generator.namespace.request', 'App\Http\Requests').$prefix;
         $this->nsRequestBase = config('infyom.laravel_generator.namespace.request', 'App\Http\Requests');
         $this->nsBaseController = config('infyom.laravel_generator.namespace.controller', 'App\Http\Controllers');
-        $this->nsController = config('infyom.laravel_generator.namespace.controller', 'App\Http\Controllers').$prefix;
+        $this->nsBackendController = config('infyom.laravel_generator.namespace.backend_controller', 'App\Http\Controllers\Backend');
+        $this->nsFrontendController = config('infyom.laravel_generator.namespace.frontend_controller', 'App\Http\Controllers\Frontend').$prefix;
 
         $this->nsApiTests = config('infyom.laravel_generator.namespace.api_test', 'Tests\APIs');
         $this->nsRepositoryTests = config('infyom.laravel_generator.namespace.repository_test', 'Tests\Repositories');
@@ -240,7 +240,8 @@ class GeneratorConfig
         $commandData->addDynamicVariable('$NAMESPACE_API_REQUEST$', $this->nsApiRequest);
 
         $commandData->addDynamicVariable('$NAMESPACE_BASE_CONTROLLER$', $this->nsBaseController);
-        $commandData->addDynamicVariable('$NAMESPACE_CONTROLLER$', $this->nsController);
+        $commandData->addDynamicVariable('$NAMESPACE_BACKEND_CONTROLLER$', $this->nsBackendController);
+        $commandData->addDynamicVariable('$NAMESPACE_FRONTEND_CONTROLLER$', $this->nsFrontendController);
         $commandData->addDynamicVariable('$NAMESPACE_REQUEST$', $this->nsRequest);
         $commandData->addDynamicVariable('$NAMESPACE_REQUEST_BASE$', $this->nsRequestBase);
 
@@ -378,7 +379,6 @@ class GeneratorConfig
         }
 
         $this->options['softDelete'] = config('infyom.laravel_generator.options.softDelete', false);
-        $this->options['repositoryPattern'] = config('infyom.laravel_generator.options.repository_pattern', true);
         if (!empty($this->options['skip'])) {
             $this->options['skip'] = array_map('trim', explode(',', $this->options['skip']));
         }

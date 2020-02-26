@@ -1,16 +1,16 @@
 <?php
 
-namespace $NAMESPACE_CONTROLLER$;
+namespace $NAMESPACE_BACKEND_CONTROLLER$;
 
 use $NAMESPACE_REQUEST$\Create$MODEL_NAME$Request;
 use $NAMESPACE_REQUEST$\Update$MODEL_NAME$Request;
-use $NAMESPACE_APP$\Http\Controllers\AppBaseController;
+use $NAMESPACE_APP$\Http\Controllers\Controller;
 use $NAMESPACE_MODEL$\$MODEL_NAME$;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
 
-class $MODEL_NAME$Controller extends AppBaseController
+class $MODEL_NAME$Controller extends Controller
 {
     /**
      * Display a listing of the $MODEL_NAME$.
