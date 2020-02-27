@@ -4,7 +4,7 @@ namespace $NAMESPACE_BACKEND_CONTROLLER$;
 
 use $NAMESPACE_DATATABLES$\$MODEL_NAME$DataTable;
 use $NAMESPACE_REQUEST$;
-use $NAMESPACE_REQUEST$\Create$MODEL_NAME$Request;
+use $NAMESPACE_REQUEST$\Store$MODEL_NAME$Request;
 use $NAMESPACE_REQUEST$\Update$MODEL_NAME$Request;
 use $NAMESPACE_REPOSITORY$\$MODEL_NAME$Repository;
 use Flash;
@@ -45,11 +45,11 @@ class $MODEL_NAME$Controller extends Controller
     /**
      * Store a newly created $MODEL_NAME$ in storage.
      *
-     * @param Create$MODEL_NAME$Request $request
+     * @param Store$MODEL_NAME$Request $request
      *
      * @return Response
      */
-    public function store(Create$MODEL_NAME$Request $request)
+    public function store(Store$MODEL_NAME$Request $request)
     {
         $input = $request->all();
 

@@ -15,7 +15,7 @@ class APIRequestGenerator extends BaseGenerator
     private $path;
 
     /** @var string */
-    private $createFileName;
+    private $storeFileName;
 
     /** @var string */
     private $updateFileName;
@@ -24,26 +24,26 @@ class APIRequestGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $this->path = $commandData->config->pathApiRequest;
-        $this->createFileName = 'Create'.$this->commandData->modelName.'APIRequest.php';
+        $this->storeFileName = 'Store'.$this->commandData->modelName.'APIRequest.php';
         $this->updateFileName = 'Update'.$this->commandData->modelName.'APIRequest.php';
     }
 
     public function generate()
     {
-        $this->generateCreateRequest();
+        $this->generateStoreRequest();
         $this->generateUpdateRequest();
     }
 
-    private function generateCreateRequest()
+    private function generateStoreRequest()
     {
-        $templateData = get_template('vuejs.request.create_request', 'laravel-generator');
+        $templateData = get_template('vuejs.request.store_request', 'laravel-generator');
 
         $templateData = fill_template($this->commandData->dynamicVars, $templateData);
 
-        FileUtil::createFile($this->path, $this->createFileName, $templateData);
+        FileUtil::createFile($this->path, $this->storeFileName, $templateData);
 
-        $this->commandData->commandComment("\nCreate Request created: ");
-        $this->commandData->commandInfo($this->createFileName);
+        $this->commandData->commandComment("\nStore Request created: ");
+        $this->commandData->commandInfo($this->storeFileName);
     }
 
     private function generateUpdateRequest()
@@ -60,8 +60,8 @@ class APIRequestGenerator extends BaseGenerator
 
     public function rollback()
     {
-        if ($this->rollbackFile($this->path, $this->createFileName)) {
-            $this->commandData->commandComment('Create API Request file deleted: '.$this->createFileName);
+        if ($this->rollbackFile($this->path, $this->storeFileName)) {
+            $this->commandData->commandComment('Store API Request file deleted: '.$this->storeFileName);
         }
 
         if ($this->rollbackFile($this->path, $this->updateFileName)) {

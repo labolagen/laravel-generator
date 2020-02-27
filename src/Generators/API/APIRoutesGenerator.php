@@ -23,7 +23,7 @@ class APIRoutesGenerator extends BaseGenerator
     public function __construct(CommandData $commandData)
     {
         $this->commandData = $commandData;
-        $this->path = $commandData->config->pathApiRoutes;
+        $this->path = $commandData->config->pathApiRoutes.DIRECTORY_SEPARATOR.$this->commandData->config->mSnakePlural.'.php';
 
         $this->routeContents = file_get_contents($this->path);
 
@@ -53,9 +53,8 @@ class APIRoutesGenerator extends BaseGenerator
 
     public function rollback()
     {
-        if (Str::contains($this->routeContents, $this->routesTemplate)) {
-            $this->routeContents = str_replace($this->routesTemplate, '', $this->routeContents);
-            file_put_contents($this->path, $this->routeContents);
+        if (file_exists($this->path)) {
+            unlink($this->path);
             $this->commandData->commandComment('api routes deleted');
         }
     }

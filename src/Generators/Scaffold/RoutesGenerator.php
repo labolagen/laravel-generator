@@ -22,7 +22,7 @@ class RoutesGenerator
     public function __construct(CommandData $commandData)
     {
         $this->commandData = $commandData;
-        $this->path = $commandData->config->pathRoutes;
+        $this->path = $commandData->config->pathRoutes.DIRECTORY_SEPARATOR.$this->commandData->config->mSnakePlural.'.php';
         $this->routeContents = file_get_contents($this->path);
         if (!empty($this->commandData->config->prefixes['route'])) {
             $this->routesTemplate = get_template('scaffold.routes.prefix_routes', 'laravel-generator');
@@ -48,9 +48,8 @@ class RoutesGenerator
 
     public function rollback()
     {
-        if (Str::contains($this->routeContents, $this->routesTemplate)) {
-            $this->routeContents = str_replace($this->routesTemplate, '', $this->routeContents);
-            file_put_contents($this->path, $this->routeContents);
+        if (file_exists($this->path)) {
+            unlink($this->path);
             $this->commandData->commandComment('scaffold routes deleted');
         }
     }

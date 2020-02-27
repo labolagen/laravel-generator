@@ -2,7 +2,7 @@
 
 namespace $NAMESPACE_API_CONTROLLER$;
 
-use $NAMESPACE_API_REQUEST$\Create$MODEL_NAME$APIRequest;
+use $NAMESPACE_API_REQUEST$\Store$MODEL_NAME$APIRequest;
 use $NAMESPACE_API_REQUEST$\Update$MODEL_NAME$APIRequest;
 use $NAMESPACE_MODEL$\$MODEL_NAME$;
 use $NAMESPACE_REPOSITORY$\$MODEL_NAME$Repository;
@@ -34,7 +34,7 @@ class $MODEL_NAME$APIController extends Controller
     }
 
     $DOC_STORE$
-    public function store(Create$MODEL_NAME$APIRequest $request)
+    public function store(Store$MODEL_NAME$APIRequest $request)
     {
         $input = $request->all();
 

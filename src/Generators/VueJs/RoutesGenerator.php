@@ -32,8 +32,8 @@ class RoutesGenerator extends BaseGenerator
     public function __construct(CommandData $commandData)
     {
         $this->commandData = $commandData;
-        $this->pathApi = $commandData->config->pathApiRoutes;
-        $this->path = $commandData->config->pathRoutes;
+        $this->pathApi = $commandData->config->pathApiRoutes.DIRECTORY_SEPARATOR.$this->commandData->config->mSnakePlural.'.php';
+        $this->path = $commandData->config->pathRoutes.DIRECTORY_SEPARATOR.$this->commandData->config->mSnakePlural.'.php';
 
         $this->routeContents = file_get_contents($this->path);
 
@@ -62,15 +62,13 @@ class RoutesGenerator extends BaseGenerator
 
     public function rollback()
     {
-        if (Str::contains($this->routeContents, $this->routesTemplate)) {
-            $this->routeContents = str_replace($this->routesTemplate, '', $this->routeContents);
-            file_put_contents($this->path, $this->routeContents);
+        if (file_exists($this->path)) {
+            unlink($this->path);
             $this->commandData->commandComment('vuejs routes deleted');
         }
 
-        if (Str::contains($this->apiRouteContents, $this->apiRoutesTemplate)) {
-            $this->apiRouteContents = str_replace($this->apiRoutesTemplate, '', $this->apiRouteContents);
-            file_put_contents($this->pathApi, $this->apiRouteContents);
+        if (file_exists($this->pathApi)) {
+            unlink($this->pathApi);
             $this->commandData->commandComment('vuejs api routes deleted');
         }
     }

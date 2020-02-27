@@ -42,7 +42,6 @@ class VueJsLayoutPublishCommand extends PublishBaseCommand
             $this->laravelVersion = '5.2';
         }
         $this->copyView();
-        $this->updateRoutes();
     }
 
     private function copyView()
@@ -207,24 +206,6 @@ class VueJsLayoutPublishCommand extends PublishBaseCommand
     private function getRequestBaseCustomFile()
     {
         return ['vuejs/request/MyAPIRequest.stub' => 'MyAPIRequest.php'];
-    }
-
-    private function updateRoutes()
-    {
-        $path = config('infyom.laravel_generator.path.routes', app_path('Http/routes.php'));
-        $routeContents = file_get_contents($path);
-
-        $routesTemplate = get_template('routes.auth', 'laravel-generator');
-        if ($this->laravelVersion == '5.1') {
-            $routesTemplate = str_replace('$LOGOUT_METHOD$', 'getLogout', $routesTemplate);
-        } else {
-            $routesTemplate = str_replace('$LOGOUT_METHOD$', 'logout', $routesTemplate);
-        }
-
-        $routeContents .= "\n\n".$routesTemplate;
-
-        file_put_contents($path, $routeContents);
-        $this->comment("\nRoutes added");
     }
 
     /**
