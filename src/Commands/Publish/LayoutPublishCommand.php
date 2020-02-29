@@ -64,16 +64,9 @@ class LayoutPublishCommand extends PublishBaseCommand
     private function getViews()
     {
         $views = [
-            'layouts/app'               => 'layouts/app.blade.php',
             'layouts/sidebar'           => 'layouts/sidebar.blade.php',
             'layouts/datatables_css'    => 'layouts/datatables_css.blade.php',
             'layouts/datatables_js'     => 'layouts/datatables_js.blade.php',
-            'layouts/menu'              => 'layouts/menu.blade.php',
-            'layouts/home'              => 'home.blade.php',
-            'auth/login'                => 'auth/login.blade.php',
-            'auth/register'             => 'auth/register.blade.php',
-            'auth/email'                => 'auth/passwords/email.blade.php',
-            'auth/reset'                => 'auth/passwords/reset.blade.php',
             'emails/password'           => 'auth/emails/password.blade.php',
         ];
 
@@ -96,16 +89,9 @@ class LayoutPublishCommand extends PublishBaseCommand
     private function getLocaleViews()
     {
         return [
-            'layouts/app_locale'        => 'layouts/app.blade.php',
             'layouts/sidebar_locale'    => 'layouts/sidebar.blade.php',
             'layouts/datatables_css'    => 'layouts/datatables_css.blade.php',
             'layouts/datatables_js'     => 'layouts/datatables_js.blade.php',
-            'layouts/menu'              => 'layouts/menu.blade.php',
-            'layouts/home'              => 'home.blade.php',
-            'auth/login_locale'         => 'auth/login.blade.php',
-            'auth/register_locale'      => 'auth/register.blade.php',
-            'auth/email_locale'         => 'auth/passwords/email.blade.php',
-            'auth/reset_locale'         => 'auth/passwords/reset.blade.php',
             'emails/password_locale'    => 'auth/emails/password.blade.php',
         ];
     }
