@@ -105,4 +105,11 @@ class FactoryGenerator extends BaseGenerator
 
         return $fields;
     }
+
+    public function rollback(){
+        if(file_exists($this->path.'/'.$this->fileName)){
+            unlink($this->path.'/'.$this->fileName);
+            $this->commandData->commandObj->info('Deleted factory file '.$this->fileName.'.');
+        }
+    }
 }
