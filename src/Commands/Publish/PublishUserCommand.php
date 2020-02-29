@@ -35,7 +35,7 @@ class PublishUserCommand extends PublishBaseCommand
     private function copyViews()
     {
         $viewsPath = config('infyom.laravel_generator.path.views', resource_path('views/'));
-        $templateType = config('infyom.laravel_generator.templates', 'adminlte-templates');
+        $templateType = config('infyom.laravel_generator.templates', 'coreui-templates');
 
         $this->createDirectories($viewsPath.'users');
 
