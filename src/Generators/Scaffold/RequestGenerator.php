@@ -43,7 +43,7 @@ class RequestGenerator extends BaseGenerator
 
         FileUtil::createFile($this->path, $this->storeFileName, $templateData);
 
-        $this->commandData->commandComment("\Store Request created: ");
+        $this->commandData->commandComment("Store Request created: ");
         $this->commandData->commandInfo($this->storeFileName);
     }
 
