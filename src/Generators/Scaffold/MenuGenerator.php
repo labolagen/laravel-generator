@@ -5,6 +5,7 @@ namespace InfyOm\Generator\Generators\Scaffold;
 use Illuminate\Support\Str;
 use InfyOm\Generator\Common\CommandData;
 use InfyOm\Generator\Generators\BaseGenerator;
+use InfyOm\Generator\Utils\FileUtil;
 
 class MenuGenerator extends BaseGenerator
 {
