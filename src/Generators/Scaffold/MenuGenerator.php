@@ -55,7 +55,7 @@ class MenuGenerator extends BaseGenerator
 
     public function generate()
     {
-        $menuFilePath = $this->path.$commandData->getAddOn('menu.menus_folder');
+        $menuFilePath = $this->path.$this->commandData->getAddOn('menu.menus_folder');
         if (file_exists($menuFilePath.$this->fileName) && $this->confirm("\nDo you want to overwrite ".$this->commandData->config->mPlural." menu? [y|N]", false)) {
             $this->commandData->commandObj->info('Menu '.$this->commandData->config->mPlural.' already exists, Skipping Adjustment.');
 
@@ -69,7 +69,7 @@ class MenuGenerator extends BaseGenerator
     }
 
     public function insertIntoMenuBlade(){
-        $menuBladePath = $this->path.$commandData->getAddOn('menu.menu_file');
+        $menuBladePath = $this->path.$this->commandData->getAddOn('menu.menu_file');
         $existingMenuContents = file_get_contents($menuBladePath);
         if (Str::contains($existingMenuContents, $this->menuIncludeContent)) {
             $this->commandData->commandObj->info('Menu '.$this->commandData->config->mHumanPlural.' already exists in menu.blade, Skipping Adjustment.');
