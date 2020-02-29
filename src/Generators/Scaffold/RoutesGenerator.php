@@ -23,7 +23,6 @@ class RoutesGenerator
     {
         $this->commandData = $commandData;
         $this->path = $commandData->config->pathRoutes.DIRECTORY_SEPARATOR.$this->commandData->config->mSnakePlural.'.php';
-        $this->routeContents = file_get_contents($this->path);
         if (!empty($this->commandData->config->prefixes['route'])) {
             $this->routesTemplate = get_template('scaffold.routes.prefix_routes', 'laravel-generator');
         } else {
@@ -34,6 +33,7 @@ class RoutesGenerator
 
     public function generate()
     {
+        $this->routeContents = file_get_contents($this->path);
         $this->routeContents .= "\n\n".$this->routesTemplate;
         $existingRouteContents = file_get_contents($this->path);
         if (Str::contains($existingRouteContents, "Route::resource('".$this->commandData->config->mSnakePlural."',")) {

@@ -34,9 +34,6 @@ class RoutesGenerator extends BaseGenerator
         $this->commandData = $commandData;
         $this->pathApi = $commandData->config->pathApiRoutes.DIRECTORY_SEPARATOR.$this->commandData->config->mSnakePlural.'.php';
         $this->path = $commandData->config->pathRoutes.DIRECTORY_SEPARATOR.$this->commandData->config->mSnakePlural.'.php';
-
-        $this->routeContents = file_get_contents($this->path);
-
         if (!file_exists($this->pathApi)) {
             file_put_contents($this->pathApi, get_template('vuejs.routes.api_routes', 'laravel-generator'));
         }
@@ -51,6 +48,7 @@ class RoutesGenerator extends BaseGenerator
 
     public function generate()
     {
+        $this->routeContents = file_get_contents($this->path);
         $this->routeContents .= "\n\n".$this->routesTemplate;
         $this->apiRouteContents .= "\n\n".$this->apiRoutesTemplate;
 
