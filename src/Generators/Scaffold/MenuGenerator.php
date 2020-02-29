@@ -58,7 +58,7 @@ class MenuGenerator extends BaseGenerator
             file_put_contents($this->menuBladePath, '');
         }
         $this->menuContents = fill_template($this->commandData->dynamicVars, $this->menuTemplate);
-        $this->menuIncludeContent = '@include(\''.str_replace('/','.',$commandData->getAddOn('menu.menu_file')).$this->commandData->config->mHumanPlural.'\')';
+        $this->menuIncludeContent = '@include(\''.str_replace('/','.',$commandData->getAddOn('menu.menu_folder')).$this->commandData->config->mHumanPlural.'\')';
     }
 
     public function generate()
