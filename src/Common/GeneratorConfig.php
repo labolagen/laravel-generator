@@ -530,6 +530,6 @@ class GeneratorConfig
         $this->addOns['tests'] = config('infyom.laravel_generator.add_on.tests', false);
         $this->addOns['datatables'] = config('infyom.laravel_generator.add_on.datatables', false);
         $this->addOns['menu.enabled'] = config('infyom.laravel_generator.add_on.menu.enabled', false);
-        $this->addOns['menu.menu_file'] = config('infyom.laravel_generator.add_on.menu.menu_file', 'layouts.menu');
+        $this->addOns['menu.menu_file'] = config('infyom.laravel_generator.add_on.menu.menu_file', 'backend.includes.menu');
     }
 }

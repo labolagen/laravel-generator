@@ -174,7 +174,9 @@ return [
 
             'enabled'       => true,
 
-            'menu_file'     => 'layouts/menu.blade.php',
+            'menu_file'     => 'backend/includes/menu.blade.php',
+
+            'menus_folder'  => 'backend/includes/menus/',
         ],
     ],
 
