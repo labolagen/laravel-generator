@@ -28,21 +28,21 @@ class RoutesGenerator
         } else {
             $this->routesTemplate = get_template('scaffold.routes.routes', 'laravel-generator');
         }
-        $this->routesTemplate = fill_template($this->commandData->dynamicVars, $this->routesTemplate);
+        $this->routeContents = fill_template($this->commandData->dynamicVars, $this->routesTemplate);
     }
 
     public function generate()
     {
-        $this->routeContents = file_get_contents($this->path);
-        $this->routeContents .= "\n\n".$this->routesTemplate;
-        $existingRouteContents = file_get_contents($this->path);
-        if (Str::contains($existingRouteContents, "Route::resource('".$this->commandData->config->mSnakePlural."',")) {
-            $this->commandData->commandObj->info('Route '.$this->commandData->config->mPlural.' is already exists, Skipping Adjustment.');
+        if(file_exists($this->path)){
+            $existingRouteContents = file_get_contents($this->path);
+            if (Str::contains($existingRouteContents, "Route::resource('".$this->commandData->config->mSnakePlural."',")) {
+                $this->commandData->commandObj->info('Route '.$this->commandData->config->mPlural.' is already exists, Skipping Adjustment.');
 
-            return;
+                return;
+            }
         }
-
         file_put_contents($this->path, $this->routeContents);
+
         $this->commandData->commandComment("\n".$this->commandData->config->mCamelPlural.' routes added.');
     }
 
