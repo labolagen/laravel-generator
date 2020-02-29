@@ -63,7 +63,7 @@ class MenuGenerator extends BaseGenerator
 
     public function generate()
     {
-        if (file_exists($this->menuFilePath.$this->fileName) && $this->confirm("\nDo you want to overwrite ".$this->commandData->config->mPlural." menu? [y|N]", false)) {
+        if (file_exists($this->menuFilePath.$this->fileName)) {
             $this->commandData->commandObj->info('Menu '.$this->commandData->config->mPlural.' already exists, Skipping Adjustment.');
 
             return;
