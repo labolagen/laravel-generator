@@ -34,6 +34,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
         if ($this->option('localized')) {
             $this->publishLocaleFiles();
         }
+        $this->publishMenuView();
     }
 
     /**
@@ -138,6 +139,18 @@ class GeneratorPublishCommand extends PublishBaseCommand
         $this->publishDirectory($localesDir, resource_path('lang'), 'lang', true);
 
         $this->comment('Locale files published');
+    }
+
+    public function publishMenuView(){
+        $menuPath = config('infyom.laravel_generator.add_on.menu.menus_folder', 'backend/includes/menus');
+        FileUtil::createDirectoryIfNotExist($menuPath);
+
+        $this->comment('Menu folder created at '.$menuPath);
+
+        $menuBladeFile = config('infyom.laravel_generator.add_on.menu.menu_file', 'backend/includes/menu.blade.php');
+        file_put_contents($menuBladeFile, '');
+
+        $this->comment('Menu blade created');
     }
 
     /**
