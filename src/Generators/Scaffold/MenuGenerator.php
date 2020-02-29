@@ -54,6 +54,9 @@ class MenuGenerator extends BaseGenerator
         $this->menuFilePath = $basepath.$this->commandData->getAddOn('menu.menus_folder');
         $this->menuBladePath = $basepath.$this->commandData->getAddOn('menu.menu_file');
         $this->fileName = $this->commandData->config->mPlural.'.blade.php';
+        if(!file_exists($this->menuFilePath)){
+           mkdir($this->menuFilePath, true);
+        }
         if(!file_exists($this->menuBladePath)){
             file_put_contents($this->menuBladePath, '');
         }
