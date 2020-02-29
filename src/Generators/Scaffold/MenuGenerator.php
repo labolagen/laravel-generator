@@ -62,7 +62,7 @@ class MenuGenerator extends BaseGenerator
     }
 
     public function insertIntoMenuBlade(){
-        $menuBladePath = $this->path.$commandData->getAddOn('menu.menu_file')
+        $menuBladePath = $this->path.$commandData->getAddOn('menu.menu_file');
         $existingMenuContents = file_get_contents($menuBladePath);
         $menuIncludeContent = '@include(\''.str_replce('/','.',$commandData->getAddOn('menu.menu_file')).$this->commandData->config->mHumanPlural.'\')';
         if (Str::contains($existingMenuContents, $menuIncludeContent)) {
