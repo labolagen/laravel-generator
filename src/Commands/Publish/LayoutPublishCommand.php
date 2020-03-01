@@ -64,9 +64,9 @@ class LayoutPublishCommand extends PublishBaseCommand
     private function getViews()
     {
         $views = [
-            'layouts/sidebar'           => 'layouts/sidebar.blade.php',
-            'layouts/datatables_css'    => 'layouts/datatables_css.blade.php',
-            'layouts/datatables_js'     => 'layouts/datatables_js.blade.php',
+            'layouts/sidebar'           => 'backend/includes/sidebar.blade.php',
+            'layouts/datatables_css'    => 'backend/includes/datatables_css.blade.php',
+            'layouts/datatables_js'     => 'backend/includes/datatables_js.blade.php',
             'emails/password'           => 'auth/emails/password.blade.php',
         ];
 
@@ -89,9 +89,9 @@ class LayoutPublishCommand extends PublishBaseCommand
     private function getLocaleViews()
     {
         return [
-            'layouts/sidebar_locale'    => 'layouts/sidebar.blade.php',
-            'layouts/datatables_css'    => 'layouts/datatables_css.blade.php',
-            'layouts/datatables_js'     => 'layouts/datatables_js.blade.php',
+            'layouts/sidebar_locale'    => 'backend/includes/sidebar.blade.php',
+            'layouts/datatables_css'    => 'backend/includes/datatables_css.blade.php',
+            'layouts/datatables_js'     => 'backend/includes/datatables_js.blade.php',
             'emails/password_locale'    => 'auth/emails/password.blade.php',
         ];
     }
