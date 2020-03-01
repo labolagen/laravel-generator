@@ -150,7 +150,7 @@ return [
 
         'path' => '',
 
-        'view' => '',  // using backend will create return view('backend.?.index') type the backend views directory
+        'view' => 'backend',  // using backend will create return view('backend.?.index') type the backend views directory
 
         'public' => '',
     ],
