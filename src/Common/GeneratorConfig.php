@@ -282,6 +282,9 @@ class GeneratorConfig
             $commandData->addDynamicVariable('$ROUTE_PREFIX$', '');
             $commandData->addDynamicVariable('$ROUTE_NAMED_PREFIX$', '');
         }
+        if(!config('infyom.laravel_generator.ignore_route_prefix', false)){
+            $commandData->dynamicVars['$ROUTE_NAMED_PREFIX$'] = 'admin.'.$commandData->dynamicVars['$ROUTE_NAMED_PREFIX$'];
+        }
 
         if (!empty($this->prefixes['ns'])) {
             $commandData->addDynamicVariable('$PATH_PREFIX$', $this->prefixes['ns'].'\\');
