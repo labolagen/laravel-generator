@@ -1,3 +1,4 @@
+<?php
 Route::group(['prefix' => '$RAW_ROUTE_PREFIX$'], function () {
-    Route::resource('$MODEL_NAME_PLURAL_CAMEL$', '$PATH_PREFIX$$MODEL_NAME$Controller', ["as" => '$RAW_ROUTE_PREFIX$']);
+    Route::resource('admin.$MODEL_NAME_PLURAL_CAMEL$', '$PATH_PREFIX$$MODEL_NAME$Controller', ["as" => '$RAW_ROUTE_PREFIX$']);
 });
