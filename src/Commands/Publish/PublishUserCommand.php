@@ -72,7 +72,7 @@ class PublishUserCommand extends PublishBaseCommand
 
         $templateData = $this->fillTemplate($templateData);
 
-        $controllerPath = config('infyom.laravel_generator.path.controller', app_path('Http/Controllers/'));
+        $controllerPath = config('infyom.laravel_generator.path.backend_controller', app_path('Http/Controllers/Backend/')).'Auth/User';
 
         $fileName = 'UserController.php';
 
