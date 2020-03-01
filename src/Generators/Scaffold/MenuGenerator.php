@@ -40,7 +40,7 @@ class MenuGenerator extends BaseGenerator
             'infyom.laravel_generator.path.views',
             resource_path('views/'
             )
-        );//.$commandData->getAddOn('menu.menu_folder');
+        );
         $this->templateType = config('infyom.laravel_generator.templates', 'coreui-templates');
 
         $templateName = 'menu_item_template';
@@ -53,10 +53,10 @@ class MenuGenerator extends BaseGenerator
 
         $this->menuFilePath = $basepath.$this->commandData->getAddOn('menu.menus_folder');
         $this->menuBladePath = $basepath.$this->commandData->getAddOn('menu.menu_file');
-        $this->fileName = $this->commandData->config->mPlural.'.blade.php';
+        $this->fileName = $this->commandData->config->mSnakePlural.'.blade.php';
 
         $this->menuContents = fill_template($this->commandData->dynamicVars, $this->menuTemplate);
-        $this->menuIncludeContent = '@include(\''.str_replace('/','.',$commandData->getAddOn('menu.menu_folder')).$this->commandData->config->mPlural.'\')';
+        $this->menuIncludeContent = '@include(\''.str_replace('/','.',$this->commandData->getAddOn('menu.menus_folder')).$this->commandData->config->mSnakePlural.'\')';
     }
 
     public function generate()
@@ -89,8 +89,8 @@ class MenuGenerator extends BaseGenerator
     public function rollback()
     {
         $existingMenuContents = file_get_contents($this->menuBladePath);
-        if (Str::contains($this->menuContents, $this->menuTemplate)) {
-            file_put_contents($this->path, str_replace($this->menuIncludeContent, '', $existingMenuContents));
+        if (Str::contains($existingMenuContents, $this->menuIncludeContent)) {
+            file_put_contents($this->menuBladePath, str_replace($this->menuIncludeContent, '', $existingMenuContents));
             $this->commandData->commandComment('menu deleted');
         }
 

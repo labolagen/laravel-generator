@@ -142,13 +142,14 @@ class GeneratorPublishCommand extends PublishBaseCommand
     }
 
     public function publishMenuView(){
+        $viewsPath = config('infyom.laravel_generator.path.views', base_path('resources/views/'));
         $menuPath = config('infyom.laravel_generator.add_on.menu.menus_folder', 'backend/includes/menus');
-        FileUtil::createDirectoryIfNotExist($menuPath);
+        FileUtil::createDirectoryIfNotExist($viewsPath.$menuPath);
 
-        $this->comment('Menu folder created at '.$menuPath);
+        $this->comment('Menu folder created at '.$viewsPath.$menuPath);
 
         $menuBladeFile = config('infyom.laravel_generator.add_on.menu.menu_file', 'backend/includes/menu.blade.php');
-        file_put_contents($menuBladeFile, '');
+        file_put_contents($viewsPath.$menuBladeFile, '');
 
         $this->comment('Menu blade created');
     }
