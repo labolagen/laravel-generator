@@ -202,8 +202,8 @@ class GeneratorConfig
         $this->pathApiTests = config('infyom.laravel_generator.path.api_test', base_path('tests/APIs/'));
 
         $this->pathController = config(
-            'infyom.laravel_generator.path.controller',
-            app_path('Http/Controllers/')
+            'infyom.laravel_generator.path.backend_controller',
+            app_path('Http/Controllers/Backend/')
         ).$prefix;
 
         $this->pathRequest = config('infyom.laravel_generator.path.request', app_path('Http/Requests/')).$prefix;
