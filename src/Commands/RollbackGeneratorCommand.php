@@ -8,6 +8,7 @@ use InfyOm\Generator\Generators\API\APIControllerGenerator;
 use InfyOm\Generator\Generators\API\APIRequestGenerator;
 use InfyOm\Generator\Generators\API\APIRoutesGenerator;
 use InfyOm\Generator\Generators\API\APITestGenerator;
+use InfyOm\Generator\Generators\FactoryGenerator;
 use InfyOm\Generator\Generators\MigrationGenerator;
 use InfyOm\Generator\Generators\ModelGenerator;
 use InfyOm\Generator\Generators\RepositoryGenerator;
@@ -134,6 +135,9 @@ class RollbackGeneratorCommand extends Command
 
         $modelJsConfigGenerator = new ModelJsConfigGenerator($this->commandData);
         $modelJsConfigGenerator->rollback();
+
+        $factoryGenerator = new FactoryGenerator($this->commandData);
+        $factoryGenerator->rollback();
 
         if ($this->commandData->getAddOn('tests')) {
             $repositoryTestGenerator = new RepositoryTestGenerator($this->commandData);

@@ -107,8 +107,8 @@ class FactoryGenerator extends BaseGenerator
     }
 
     public function rollback(){
-        if(file_exists($this->path.'/'.$this->fileName)){
-            unlink($this->path.'/'.$this->fileName);
+        if(file_exists($this->path.$this->fileName)){
+            unlink($this->path.$this->fileName);
             $this->commandData->commandObj->info('Deleted factory file '.$this->fileName.'.');
         }
     }
