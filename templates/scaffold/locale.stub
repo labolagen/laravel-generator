@@ -1,6 +1,8 @@
 <?php
 
 return [
+	'singular' => '$MODEL_NAME$',
+	'plural' => '$MODEL_NAME_PLURAL$',
 	'alerts' => [
 		'backend' => [
 			'created' => 'The $MODEL_NAME_SNAKE$ was successfully created.',
