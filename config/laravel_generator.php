@@ -54,6 +54,8 @@ return [
         'factory'           => database_path('factories/'),
 
         'view_provider'     => app_path('Providers/ViewServiceProvider.php'),
+
+        'locale'            => resource_path('lang/'),
     ],
 
     /*
@@ -153,6 +155,8 @@ return [
         'view' => 'backend',  // using backend will create return view('backend.?.index') type the backend views directory
 
         'public' => '',
+
+        'model_locale' => 'models/',
     ],
 
     /*

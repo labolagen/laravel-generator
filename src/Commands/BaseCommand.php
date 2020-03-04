@@ -15,6 +15,7 @@ use InfyOm\Generator\Generators\ModelGenerator;
 use InfyOm\Generator\Generators\RepositoryGenerator;
 use InfyOm\Generator\Generators\RepositoryTestGenerator;
 use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
+use InfyOm\Generator\Generators\Scaffold\LocaleGenerator;
 use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
 use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
 use InfyOm\Generator\Generators\Scaffold\RoutesGenerator;
@@ -160,9 +161,8 @@ class BaseCommand extends Command
             }
         }
 
-        if ($this->commandData->getOption('localized')) {
-            $this->saveLocaleFile();
-        }
+        $localeGenerator = new LocaleGenerator($this->commandData);
+        $localeGenerator->generate();
 
         if (!$this->isSkip('dump-autoload')) {
             $this->info('Generating autoload files');
@@ -228,31 +228,6 @@ class BaseCommand extends Command
         }
         FileUtil::createFile($path, $fileName, json_encode($fileFields, JSON_PRETTY_PRINT));
         $this->commandData->commandComment("\nSchema File saved: ");
-        $this->commandData->commandInfo($fileName);
-    }
-
-    private function saveLocaleFile()
-    {
-        $locales = [
-            'singular' => $this->commandData->modelName,
-            'plural'   => $this->commandData->config->mPlural,
-            'fields'   => [],
-        ];
-
-        foreach ($this->commandData->fields as $field) {
-            $locales['fields'][$field->name] = Str::title(str_replace('_', ' ', $field->name));
-        }
-
-        $path = config('infyom.laravel_generator.path.models_locale_files', base_path('resources/lang/en/models/'));
-
-        $fileName = $this->commandData->config->mCamelPlural.'.php';
-
-        if (file_exists($path.$fileName) && !$this->confirmOverwrite($fileName)) {
-            return;
-        }
-        $content = "<?php\n\nreturn ".var_export($locales, true).';'.\PHP_EOL;
-        FileUtil::createFile($path, $fileName, $content);
-        $this->commandData->commandComment("\nModel Locale File saved: ");
         $this->commandData->commandInfo($fileName);
     }
 

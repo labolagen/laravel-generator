@@ -1,0 +1,66 @@
+<?php
+
+return [
+	'alerts' => [
+		'backend' => [
+			'created' => 'The $MODEL_NAME_SNAKE$ was successfully created.',
+			'deleted' => 'The $MODEL_NAME_SNAKE$ was successfully deleted.',
+			'updated' => 'The $MODEL_NAME_SNAKE$ was successfully updated.',
+		],
+		'frontend' => [
+		],
+	],
+	'buttons' => [
+		'backend' => [
+		],
+		'frontend' => [
+		],
+	],
+	'exceptions' => [
+		'backend' => [
+		],
+		'frontend' => [
+		],
+	],
+	'labels' => [
+		'backend' => [
+			'create' => 'Create $MODEL_NAME$'
+			'edit' => 'Edit $MODEL_NAME$'
+			'management' => '$MODEL_NAME$ Management',
+			'table' => [
+				'id' => 'ID',
+				$FIELDS$
+			],
+			'view' => 'View $MODEL_NAME$',
+		],
+		'frontend' => [
+		],
+	],
+	'menus' => [
+		'backend' => [
+			'all' => 'All $MODEL_NAME_PLURAL$',
+			'create' => 'Create $MODEL_NAME$',
+			'edit' => 'Edit $MODEL_NAME$',
+			'management' => '$MODEL_NAME$ Management',
+			'main' => '$MODEL_NAME_PLURAL$',
+		],
+	],
+	'navs' => [
+		'backend' => [
+		],
+		'frontend' => [
+		],
+	],
+	'strings' => [
+		'backend' => [
+		],
+		'frontend' => [
+		],
+	],
+	'validation' => [
+		'attributes' => [
+			'backend' => $FIELDS$,
+			'frontend' => $FIELDS$,
+		],
+	],
+];
