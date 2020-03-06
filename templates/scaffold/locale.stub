@@ -26,8 +26,8 @@ return [
 	],
 	'labels' => [
 		'backend' => [
-			'create' => 'Create $MODEL_NAME$'
-			'edit' => 'Edit $MODEL_NAME$'
+			'create' => 'Create $MODEL_NAME$',
+			'edit' => 'Edit $MODEL_NAME$',
 			'management' => '$MODEL_NAME$ Management',
 			'table' => [
 				'id' => 'ID',
