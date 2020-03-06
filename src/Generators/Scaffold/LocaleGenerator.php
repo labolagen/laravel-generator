@@ -42,7 +42,7 @@ class LocaleGenerator
         foreach ($this->commandData->fields as $field) {
             $fields[$field->name] = Str::title(str_replace('_', ' ', $field->name));
         }
-        $this->commandData->addDynamicVariable('$FIELDS$', var_export($fields, true).',');
+        $this->commandData->addDynamicVariable('$FIELDS$', var_export($fields, true));
 
         $this->localeContents = fill_template($this->commandData->dynamicVars, $this->localeTemplate);
 
