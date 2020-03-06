@@ -304,6 +304,8 @@ class GeneratorConfig
             $commandData->addDynamicVariable('$PUBLIC_PREFIX$', '');
         }
 
+        $commandData->addDynamicVariable('$MODEL_LOCALE_PREFIX$', $this->prefixes['model_locale']);
+
         $commandData->addDynamicVariable(
             '$API_PREFIX$',
             config('infyom.laravel_generator.api_prefix', 'api')
@@ -475,6 +477,15 @@ class GeneratorConfig
         }
 
         $this->prefixes['public'] = $publicPrefix;
+
+        $modelLocalePrefix = config('infyom.laravel_generator.prefixes.model_locale', 'models/');
+
+        $modelLocalePrefix = trim($modelLocalePrefix,'/');
+        if(!empty($modelLocalePrefix)){
+            $modelLocalePrefix .= '/';
+        }
+
+        $this->prefixes['model_locale'] = $modelLocalePrefix;
     }
 
     public function overrideOptionsFromJsonFile($jsonData)
