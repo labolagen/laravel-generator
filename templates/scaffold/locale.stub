@@ -29,10 +29,7 @@ return [
 			'create' => 'Create $MODEL_NAME$',
 			'edit' => 'Edit $MODEL_NAME$',
 			'management' => '$MODEL_NAME$ Management',
-			'table' => [
-				'id' => 'ID',
-				$FIELDS$
-			],
+			'table' => $FIELDS$,
 			'view' => 'View $MODEL_NAME$',
 		],
 		'frontend' => [
