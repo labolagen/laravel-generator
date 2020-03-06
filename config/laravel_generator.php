@@ -210,6 +210,12 @@ return [
     */
     'ignore_model_prefix' => false,
 
+    /**
+     * By default, the code generator adds 'admin' to match the laravel-boilerplate structure.
+     * To avoid adding 'admin' prefix to the route, set this option to true.
+     */
+    'ignore_route_prefix' => false,
+
     /*
     |--------------------------------------------------------------------------
     | Specify custom doctrine mappings as per your need

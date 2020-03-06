@@ -28,7 +28,14 @@ class RoutesGenerator
         } else {
             $this->routesTemplate = get_template('scaffold.routes.routes', 'laravel-generator');
         }
+
+        /* Removing 'admin.' from route prefix
+         * due to already set prefix
+         * using Route::group in routes/web.php
+        */
+        $this->commandData->addDynamicVariable('$ROUTE_NAMED_PREFIX$', ltrim($this->commandData->dynamicVars['$ROUTE_NAMED_PREFIX$'], 'admin.'));
         $this->routeContents = fill_template($this->commandData->dynamicVars, $this->routesTemplate);
+        $this->commandData->addDynamicVariable('$ROUTE_NAMED_PREFIX$', 'admin.'.$this->commandData->dynamicVars['$ROUTE_NAMED_PREFIX$']);
     }
 
     public function generate()
