@@ -194,8 +194,9 @@ if (!function_exists('fill_template_with_field_data_locale')) {
     {
         $template = fill_template($variables, $template);
         $tableName = $variables['$TABLE_NAME$'];
+        $modelLocalePrefix = $variables['$MODEL_LOCALE_PREFIX$'];
 
-        return fill_field_template_locale($fieldVariables, $template, $field, $tableName);
+        return fill_field_template_locale($fieldVariables, $template, $field, $tableName, $modelLocalePrefix);
     }
 }
 
@@ -210,11 +211,11 @@ if (!function_exists('fill_field_template_locale')) {
      *
      * @return string
      */
-    function fill_field_template_locale($variables, $template, $field, $tableName)
+    function fill_field_template_locale($variables, $template, $field, $tableName, $modelLocalePrefix)
     {
         foreach ($variables as $variable => $key) {
             $value = $field->name;
-            $template = str_replace($variable, "@lang('models/$tableName.fields.$value')", $template);
+            $template = str_replace($variable, "@lang('{$modelLocalePrefix}$tableName.labels.backend.table.$value')", $template);
         }
 
         return $template;
