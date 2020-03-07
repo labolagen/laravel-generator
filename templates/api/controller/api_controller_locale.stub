@@ -32,7 +32,7 @@ class $MODEL_NAME$APIController extends Controller
 
         return $this->sendResponse(
             $$MODEL_NAME_PLURAL_CAMEL$->toArray(),
-            __('messages.retrieved', ['model' => __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.plural')])
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.retrieved')
         );
     }
 
@@ -45,7 +45,7 @@ class $MODEL_NAME$APIController extends Controller
 
         return $this->sendResponse(
             $$MODEL_NAME_CAMEL$->toArray(),
-            __('messages.saved', ['model' => __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.singular')])
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alterts.created')
         );
     }
 
@@ -57,13 +57,13 @@ class $MODEL_NAME$APIController extends Controller
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             return $this->sendError(
-                __('messages.not_found', ['model' => __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.singular')])
+                __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.not_found')
             );
         }
 
         return $this->sendResponse(
             $$MODEL_NAME_CAMEL$->toArray(),
-            __('messages.retrieved', ['model' => __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.singular')])
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.retrieved')
         );
     }
 
@@ -77,7 +77,7 @@ class $MODEL_NAME$APIController extends Controller
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             return $this->sendError(
-                __('messages.not_found', ['model' => __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.singular')])
+                __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.not_found')
             );
         }
 
@@ -85,7 +85,7 @@ class $MODEL_NAME$APIController extends Controller
 
         return $this->sendResponse(
             $$MODEL_NAME_CAMEL$->toArray(),
-            __('messages.updated', ['model' => __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.singular')])
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.updated')
         );
     }
 
@@ -97,7 +97,7 @@ class $MODEL_NAME$APIController extends Controller
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             return $this->sendError(
-                __('messages.not_found', ['model' => __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.singular')])
+                __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.not_found')
             );
         }
 
@@ -105,7 +105,7 @@ class $MODEL_NAME$APIController extends Controller
 
         return $this->sendResponse(
             $id,
-            __('messages.deleted', ['model' => __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.singular')])
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.deleted')
         );
     }
 }

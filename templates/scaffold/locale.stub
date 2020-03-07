@@ -8,6 +8,8 @@ return [
 			'created' => 'The $MODEL_NAME_SNAKE$ was successfully created.',
 			'deleted' => 'The $MODEL_NAME_SNAKE$ was successfully deleted.',
 			'updated' => 'The $MODEL_NAME_SNAKE$ was successfully updated.',
+			'retrieved' => 'The $MODEL_NAME_SNAKE$ was retrieved successfully.',
+			'not_found' => 'The $MODEL_NAME_SNAKE$ was not found.',
 		],
 		'frontend' => [
 		],
