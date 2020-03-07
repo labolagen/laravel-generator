@@ -52,27 +52,27 @@ class $MODEL_NAME$DataTable extends DataTable
                     [
                        'extend' => 'create',
                        'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-plus"></i> ' .__('auth.app.create').''
+                       'text' => '<i class="fa fa-plus"></i> ' .__('buttons.general.crud.create').''
                     ],
                     [
                        'extend' => 'export',
                        'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-download"></i> ' .__('auth.app.export').''
+                       'text' => '<i class="fa fa-download"></i> ' .__('buttons.general.export').''
                     ],
                     [
                        'extend' => 'print',
                        'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-print"></i> ' .__('auth.app.print').''
+                       'text' => '<i class="fa fa-print"></i> ' .__('buttons.general.print').''
                     ],
                     [
                        'extend' => 'reset',
                        'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-undo"></i> ' .__('auth.app.reset').''
+                       'text' => '<i class="fa fa-undo"></i> ' .__('buttons.general.reset').''
                     ],
                     [
                        'extend' => 'reload',
                        'className' => 'btn btn-default btn-sm no-corner',
-                       'text' => '<i class="fa fa-refresh"></i> ' .__('auth.app.reload').''
+                       'text' => '<i class="fa fa-refresh"></i> ' .__('buttons.general.reload').''
                     ],
                 ],
                  'language' => [
