@@ -56,6 +56,8 @@ return [
         'view_provider'     => app_path('Providers/ViewServiceProvider.php'),
 
         'locale'            => resource_path('lang/'),
+
+        'breadcrumb_route'  => base_path('routes/breadcrumbs/'),
     ],
 
     /*

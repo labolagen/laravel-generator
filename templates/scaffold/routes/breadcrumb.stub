@@ -1,0 +1,20 @@
+<?php
+
+Breadcrumbs::for('admin.$MODEL_NAME_PLURAL_CAMEL$.index', function ($trail) {
+    $trail->push('$MODEL_NAME$ Management'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.index'));
+});
+
+Breadcrumbs::for('admin.$MODEL_NAME_PLURAL_CAMEL$.create', function ($trail) {
+    $trail->parent('admin.$MODEL_NAME_PLURAL_CAMEL$.index');
+    $trail->push('Create $MODEL_NAME$'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.create'));
+});
+
+Breadcrumbs::for('admin.$MODEL_NAME_PLURAL_CAMEL$.show', function ($trail, $id) {
+    $trail->parent('admin.$MODEL_NAME_PLURAL_CAMEL$.index');
+    $trail->push('View $MODEL_NAME$', route('admin.$MODEL_NAME_PLURAL_CAMEL$.show', $id));
+});
+
+Breadcrumbs::for('admin.$MODEL_NAME_PLURAL_CAMEL$.edit', function ($trail, $id) {
+    $trail->parent('admin.$MODEL_NAME_PLURAL_CAMEL$.index');
+    $trail->push('Edit $MODEL_NAME$'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.edit', $id));
+});

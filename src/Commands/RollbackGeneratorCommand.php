@@ -13,6 +13,7 @@ use InfyOm\Generator\Generators\MigrationGenerator;
 use InfyOm\Generator\Generators\ModelGenerator;
 use InfyOm\Generator\Generators\RepositoryGenerator;
 use InfyOm\Generator\Generators\RepositoryTestGenerator;
+use InfyOm\Generator\Generators\Scaffold\BreadcrumbGenerator;
 use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
 use InfyOm\Generator\Generators\Scaffold\LocaleGenerator;
 use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
@@ -142,6 +143,9 @@ class RollbackGeneratorCommand extends Command
 
         $localeGenerator = new LocaleGenerator($this->commandData);
         $localeGenerator->rollback();
+
+        $breadCrumbGenerator = new BreadCrumbGenerator($this->commandData);
+        $breadCrumbGenerator->rollback();
 
         if ($this->commandData->getAddOn('tests')) {
             $repositoryTestGenerator = new RepositoryTestGenerator($this->commandData);
