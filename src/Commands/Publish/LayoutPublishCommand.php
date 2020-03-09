@@ -55,33 +55,13 @@ class LayoutPublishCommand extends PublishBaseCommand
     private function createDirectories($viewsPath)
     {
         FileUtil::createDirectoryIfNotExist($viewsPath.'layouts');
-        FileUtil::createDirectoryIfNotExist($viewsPath.'auth');
-
-        FileUtil::createDirectoryIfNotExist($viewsPath.'auth/passwords');
-        FileUtil::createDirectoryIfNotExist($viewsPath.'auth/emails');
     }
 
     private function getViews()
     {
         $views = [
             'layouts/sidebar'           => 'backend/includes/sidebar.blade.php',
-            'layouts/datatables_css'    => 'backend/includes/datatables_css.blade.php',
-            'layouts/datatables_js'     => 'backend/includes/datatables_js.blade.php',
-            'emails/password'           => 'auth/emails/password.blade.php',
         ];
-
-        $version = $this->getApplication()->getVersion();
-        if (Str::contains($version, '6.')) {
-            $verifyView = [
-                'auth/verify_6' => 'auth/verify.blade.php',
-            ];
-        } else {
-            $verifyView = [
-                'auth/verify' => 'auth/verify.blade.php',
-            ];
-        }
-
-        $views = array_merge($views, $verifyView);
 
         return $views;
     }
@@ -90,9 +70,6 @@ class LayoutPublishCommand extends PublishBaseCommand
     {
         return [
             'layouts/sidebar_locale'    => 'backend/includes/sidebar.blade.php',
-            'layouts/datatables_css'    => 'backend/includes/datatables_css.blade.php',
-            'layouts/datatables_js'     => 'backend/includes/datatables_js.blade.php',
-            'emails/password_locale'    => 'auth/emails/password.blade.php',
         ];
     }
 
