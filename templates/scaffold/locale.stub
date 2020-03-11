@@ -33,6 +33,7 @@ return [
 			'management' => '$MODEL_NAME$ Management',
 			'table' => [
 				'fields' => $FIELDS$,
+				'total' => '$MODEL_NAME$ total| $MODEL_NAME_PLURAL$ total',
 			],
 			'view' => 'View $MODEL_NAME$',
 		],
