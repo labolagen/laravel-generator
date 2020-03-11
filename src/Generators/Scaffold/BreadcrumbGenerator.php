@@ -28,9 +28,6 @@ class BreadcrumbGenerator extends BaseGenerator
     private $parentFileName = 'backend.php';
 
     /** @var string */
-    private $templateType;
-
-    /** @var string */
     private $breadcrumbContents;
 
     /** @var string */
@@ -55,7 +52,7 @@ class BreadcrumbGenerator extends BaseGenerator
             $templateName .= '_locale';
         }
 
-        $this->template = get_template('scaffold.routes.'.$templateName, $this->templateType);
+        $this->template = get_template('scaffold.routes.'.$templateName, 'laravel-generator');
 
         $this->basePath = config('laravel_generator.path.breadcrumb_route', base_path('routes/breadcrumbs/'));
         $this->basePath .= 'backend/';
