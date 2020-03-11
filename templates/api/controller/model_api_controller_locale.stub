@@ -42,7 +42,7 @@ class $MODEL_NAME$APIController extends Controller
 
         return $this->sendResponse(
              $$MODEL_NAME_CAMEL$->toArray(),
-             __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alterts.created')
+             __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.created')
         );
     }
 

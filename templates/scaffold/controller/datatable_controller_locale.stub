@@ -55,7 +55,7 @@ class $MODEL_NAME$Controller extends Controller
 
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->create($input);
 
-        Flash::success(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alterts.created'));
+        Flash::success(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.created'));
 
         return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'));
     }
