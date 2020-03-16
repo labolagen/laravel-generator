@@ -70,7 +70,7 @@ class BaseCommand extends Command
             $modelGenerator->generate();
         }
 
-        if (!$this->isSkip('repository') && $this->commandData->getOption('repositoryPattern')) {
+        if (!$this->isSkip('repository')) {
             $repositoryGenerator = new RepositoryGenerator($this->commandData);
             $repositoryGenerator->generate();
         }

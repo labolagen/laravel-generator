@@ -41,11 +41,7 @@ class ControllerGenerator extends BaseGenerator
 
             $this->generateDataTable();
         } else {
-            if ($this->commandData->getOption('repositoryPattern')) {
-                $templateName = 'controller';
-            } else {
-                $templateName = 'model_controller';
-            }
+            $templateName = 'controller';
             if ($this->commandData->isLocalizedTemplates()) {
                 $templateName .= '_locale';
             }
