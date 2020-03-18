@@ -17,4 +17,8 @@ class $MODEL_NAME$Repository extends BaseRepository
     {
         $this->model = $model;
     }
+
+    public function update(array $data, $id){
+        return $this->updateById($id, $data);
+    }
 }
