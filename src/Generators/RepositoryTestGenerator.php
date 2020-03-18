@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Generators;
+namespace Labolagen\Generator\Generators;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Utils\FileUtil;
 
 class RepositoryTestGenerator extends BaseGenerator
 {
@@ -19,7 +19,7 @@ class RepositoryTestGenerator extends BaseGenerator
     public function __construct($commandData)
     {
         $this->commandData = $commandData;
-        $this->path = config('infyom.laravel_generator.path.repository_test', base_path('tests/Repositories/'));
+        $this->path = config('labolagen.laravel_generator.path.repository_test', base_path('tests/Repositories/'));
         $this->fileName = $this->commandData->modelName.'RepositoryTest.php';
     }
 

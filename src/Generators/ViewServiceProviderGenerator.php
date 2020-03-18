@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Generators;
+namespace Labolagen\Generator\Generators;
 
 use File;
-use InfyOm\Generator\Common\CommandData;
+use Labolagen\Generator\Common\CommandData;
 
 /**
  * Class ViewServiceProviderGenerator.

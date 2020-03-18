@@ -1,13 +1,13 @@
 <?php
 
-namespace InfyOm\Generator\Utils;
+namespace Labolagen\Generator\Utils;
 
 use DB;
 use Doctrine\DBAL\Schema\AbstractSchemaManager;
 use Doctrine\DBAL\Schema\Column;
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\GeneratorField;
-use InfyOm\Generator\Common\GeneratorFieldRelation;
+use Labolagen\Generator\Common\GeneratorField;
+use Labolagen\Generator\Common\GeneratorFieldRelation;
 
 class GeneratorForeignKey
 {
@@ -74,7 +74,7 @@ class TableFieldsGenerator
             'bit'  => 'boolean',
         ];
 
-        $mappings = config('infyom.laravel_generator.from_table.doctrine_mappings', []);
+        $mappings = config('labolagen.laravel_generator.from_table.doctrine_mappings', []);
         $mappings = array_merge($mappings, $defaultMappings);
         foreach ($mappings as $dbType => $doctrineType) {
             $platform->registerDoctrineTypeMapping($dbType, $doctrineType);
@@ -91,7 +91,7 @@ class TableFieldsGenerator
 
         $this->primaryKey = $this->getPrimaryKeyOfTable($tableName);
         $this->timestamps = static::getTimestampFieldNames();
-        $this->defaultSearchable = config('infyom.laravel_generator.options.tables_searchable_default', false);
+        $this->defaultSearchable = config('labolagen.laravel_generator.options.tables_searchable_default', false);
     }
 
     /**
@@ -184,13 +184,13 @@ class TableFieldsGenerator
      */
     public static function getTimestampFieldNames()
     {
-        if (!config('infyom.laravel_generator.timestamps.enabled', true)) {
+        if (!config('labolagen.laravel_generator.timestamps.enabled', true)) {
             return [];
         }
 
-        $createdAtName = config('infyom.laravel_generator.timestamps.created_at', 'created_at');
-        $updatedAtName = config('infyom.laravel_generator.timestamps.updated_at', 'updated_at');
-        $deletedAtName = config('infyom.laravel_generator.timestamps.deleted_at', 'deleted_at');
+        $createdAtName = config('labolagen.laravel_generator.timestamps.created_at', 'created_at');
+        $updatedAtName = config('labolagen.laravel_generator.timestamps.updated_at', 'updated_at');
+        $deletedAtName = config('labolagen.laravel_generator.timestamps.deleted_at', 'deleted_at');
 
         return [$createdAtName, $updatedAtName, $deletedAtName];
     }

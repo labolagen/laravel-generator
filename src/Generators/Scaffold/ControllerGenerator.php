@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Generators\Scaffold;
+namespace Labolagen\Generator\Generators\Scaffold;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\BaseGenerator;
+use Labolagen\Generator\Utils\FileUtil;
 
 class ControllerGenerator extends BaseGenerator
 {
@@ -24,7 +24,7 @@ class ControllerGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $this->path = $commandData->config->pathController;
-        $this->templateType = config('infyom.laravel_generator.templates', 'coreui-templates');
+        $this->templateType = config('labolagen.laravel_generator.templates', 'coreui-templates');
         $this->fileName = $this->commandData->modelName.'Controller.php';
     }
 

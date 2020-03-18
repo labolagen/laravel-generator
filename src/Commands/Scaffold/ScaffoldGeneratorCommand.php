@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Scaffold;
+namespace Labolagen\Generator\Commands\Scaffold;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
+use Labolagen\Generator\Commands\BaseCommand;
+use Labolagen\Generator\Common\CommandData;
 
 class ScaffoldGeneratorCommand extends BaseCommand
 {
@@ -12,7 +12,7 @@ class ScaffoldGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:scaffold';
+    protected $name = 'labolagen:scaffold';
 
     /**
      * The console command description.

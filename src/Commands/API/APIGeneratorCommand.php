@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Commands\API;
+namespace Labolagen\Generator\Commands\API;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
+use Labolagen\Generator\Commands\BaseCommand;
+use Labolagen\Generator\Common\CommandData;
 
 class APIGeneratorCommand extends BaseCommand
 {
@@ -12,7 +12,7 @@ class APIGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:api';
+    protected $name = 'labolagen:api';
 
     /**
      * The console command description.

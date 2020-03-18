@@ -2,8 +2,8 @@
 
 namespace App\Http\Requests\API;
 
-use InfyOm\Generator\Request\APIRequest;
-use InfyOm\Generator\Utils\ResponseUtil;
+use Labolagen\Generator\Request\APIRequest;
+use Labolagen\Generator\Utils\ResponseUtil;
 use Illuminate\Contracts\Validation\Validator;
 use Response;
 
@@ -39,5 +39,5 @@ class MyAPIRequest extends APIRequest
         }
 
         return $res;
-    }  
+    }
 }

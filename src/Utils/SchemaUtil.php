@@ -1,6 +1,6 @@
 <?php
 
-namespace InfyOm\Generator\Utils;
+namespace Labolagen\Generator\Utils;
 
 class SchemaUtil
 {

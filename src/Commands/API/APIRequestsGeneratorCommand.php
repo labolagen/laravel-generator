@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Commands\API;
+namespace Labolagen\Generator\Commands\API;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\API\APIRequestGenerator;
+use Labolagen\Generator\Commands\BaseCommand;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\API\APIRequestGenerator;
 
 class APIRequestsGeneratorCommand extends BaseCommand
 {
@@ -13,7 +13,7 @@ class APIRequestsGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.api:requests';
+    protected $name = 'labolagen.api:requests';
 
     /**
      * The console command description.

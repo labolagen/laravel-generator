@@ -1,12 +1,12 @@
 <?php
 
-namespace InfyOm\Generator\Generators;
+namespace Labolagen\Generator\Generators;
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Common\GeneratorFieldRelation;
-use InfyOm\Generator\Utils\FileUtil;
-use InfyOm\Generator\Utils\TableFieldsGenerator;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Common\GeneratorFieldRelation;
+use Labolagen\Generator\Utils\FileUtil;
+use Labolagen\Generator\Utils\TableFieldsGenerator;
 
 class ModelGenerator extends BaseGenerator
 {
@@ -108,7 +108,7 @@ class ModelGenerator extends BaseGenerator
                 $templateData
             );
             $templateData = str_replace('$SOFT_DELETE$', infy_tab()."use SoftDeletes;\n", $templateData);
-            $deletedAtTimestamp = config('infyom.laravel_generator.timestamps.deleted_at', 'deleted_at');
+            $deletedAtTimestamp = config('labolagen.laravel_generator.timestamps.deleted_at', 'deleted_at');
             $templateData = str_replace(
                 '$SOFT_DELETE_DATES$', infy_nl_tab()."protected \$dates = ['".$deletedAtTimestamp."'];\n",
                 $templateData
@@ -252,8 +252,8 @@ class ModelGenerator extends BaseGenerator
 
     private function generateRules()
     {
-        $dont_require_fields = config('infyom.laravel_generator.options.hidden_fields', [])
-                + config('infyom.laravel_generator.options.excluded_fields', []);
+        $dont_require_fields = config('labolagen.laravel_generator.options.hidden_fields', [])
+                + config('labolagen.laravel_generator.options.excluded_fields', []);
 
         $rules = [];
 

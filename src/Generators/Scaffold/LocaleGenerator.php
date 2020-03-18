@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Generators\Scaffold;
+namespace Labolagen\Generator\Generators\Scaffold;
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Utils\FileUtil;
 
 class LocaleGenerator
 {
@@ -32,8 +32,8 @@ class LocaleGenerator
     public function __construct(CommandData $commandData)
     {
         $this->commandData = $commandData;
-        $this->basePath = config('infyom.laravel_generator.path.locale', resource_path('lang/'));
-        $this->relPath = config('infyom.laravel_generator.prefixes.model_locale', 'models/');
+        $this->basePath = config('labolagen.laravel_generator.path.locale', resource_path('lang/'));
+        $this->relPath = config('labolagen.laravel_generator.prefixes.model_locale', 'models/');
         $this->fileName = $this->commandData->config->mSnakePlural.'.php';
 
         $this->localeTemplate = get_template('scaffold.locale', 'laravel-generator');

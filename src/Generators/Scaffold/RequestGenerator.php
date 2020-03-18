@@ -1,11 +1,11 @@
 <?php
 
-namespace InfyOm\Generator\Generators\Scaffold;
+namespace Labolagen\Generator\Generators\Scaffold;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
-use InfyOm\Generator\Generators\ModelGenerator;
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\BaseGenerator;
+use Labolagen\Generator\Generators\ModelGenerator;
+use Labolagen\Generator\Utils\FileUtil;
 
 class RequestGenerator extends BaseGenerator
 {

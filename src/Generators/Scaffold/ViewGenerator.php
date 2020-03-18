@@ -1,14 +1,14 @@
 <?php
 
-namespace InfyOm\Generator\Generators\Scaffold;
+namespace Labolagen\Generator\Generators\Scaffold;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
-use InfyOm\Generator\Generators\ViewServiceProviderGenerator;
-use InfyOm\Generator\Utils\FileUtil;
-use InfyOm\Generator\Utils\HTMLFieldGenerator;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\BaseGenerator;
+use Labolagen\Generator\Generators\ViewServiceProviderGenerator;
+use Labolagen\Generator\Utils\FileUtil;
+use Labolagen\Generator\Utils\HTMLFieldGenerator;
 
 class ViewGenerator extends BaseGenerator
 {
@@ -28,7 +28,7 @@ class ViewGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $this->path = $commandData->config->pathViews;
-        $this->templateType = config('infyom.laravel_generator.templates', 'coreui-templates');
+        $this->templateType = config('labolagen.laravel_generator.templates', 'coreui-templates');
     }
 
     public function generate()

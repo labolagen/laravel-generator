@@ -1,11 +1,11 @@
 <?php
 
-namespace InfyOm\Generator\Generators\Scaffold;
+namespace Labolagen\Generator\Generators\Scaffold;
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\BaseGenerator;
+use Labolagen\Generator\Utils\FileUtil;
 
 class BreadcrumbGenerator extends BaseGenerator
 {
@@ -40,11 +40,11 @@ class BreadcrumbGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $basepath = config(
-            'infyom.laravel_generator.path.views',
+            'labolagen.laravel_generator.path.views',
             resource_path('views/'
             )
         );
-        $this->templateType = config('infyom.laravel_generator.templates', 'coreui-templates');
+        $this->templateType = config('labolagen.laravel_generator.templates', 'coreui-templates');
 
         $templateName = 'breadcrumb';
 

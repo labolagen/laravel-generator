@@ -1,8 +1,8 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Publish;
+namespace Labolagen\Generator\Commands\Publish;
 
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Utils\FileUtil;
 
 class PublishUserCommand extends PublishBaseCommand
 {
@@ -11,7 +11,7 @@ class PublishUserCommand extends PublishBaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.publish:user';
+    protected $name = 'labolagen.publish:user';
 
     /**
      * The console command description.
@@ -34,8 +34,8 @@ class PublishUserCommand extends PublishBaseCommand
 
     private function copyViews()
     {
-        $viewsPath = config('infyom.laravel_generator.path.views', resource_path('views/'));
-        $templateType = config('infyom.laravel_generator.templates', 'coreui-templates');
+        $viewsPath = config('labolagen.laravel_generator.path.views', resource_path('views/'));
+        $templateType = config('labolagen.laravel_generator.templates', 'coreui-templates');
 
         $this->createDirectories($viewsPath.'users');
 
@@ -72,7 +72,7 @@ class PublishUserCommand extends PublishBaseCommand
 
         $templateData = $this->fillTemplate($templateData);
 
-        $controllerPath = config('infyom.laravel_generator.path.backend_controller', app_path('Http/Controllers/Backend/')).'Auth/User';
+        $controllerPath = config('labolagen.laravel_generator.path.backend_controller', app_path('Http/Controllers/Backend/')).'Auth/User';
 
         $fileName = 'UserController.php';
 
@@ -91,7 +91,7 @@ class PublishUserCommand extends PublishBaseCommand
 
         $templateData = $this->fillTemplate($templateData);
 
-        $repositoryPath = config('infyom.laravel_generator.path.repository', app_path('Repositories/'));
+        $repositoryPath = config('labolagen.laravel_generator.path.repository', app_path('Repositories/'));
 
         $fileName = 'UserRepository.php';
 
@@ -115,13 +115,13 @@ class PublishUserCommand extends PublishBaseCommand
      */
     private function fillTemplate($templateData)
     {
-        $templateData = str_replace('$NAMESPACE_BACKEND_CONTROLLER$', config('infyom.laravel_generator.namespace.backend_controller'), $templateData);
+        $templateData = str_replace('$NAMESPACE_BACKEND_CONTROLLER$', config('labolagen.laravel_generator.namespace.backend_controller'), $templateData);
 
-        $templateData = str_replace('$NAMESPACE_FRONTEND_CONTROLLER$', config('infyom.laravel_generator.namespace.frontend_controller'), $templateData);
+        $templateData = str_replace('$NAMESPACE_FRONTEND_CONTROLLER$', config('labolagen.laravel_generator.namespace.frontend_controller'), $templateData);
 
-        $templateData = str_replace('$NAMESPACE_REQUEST$', config('infyom.laravel_generator.namespace.request'), $templateData);
+        $templateData = str_replace('$NAMESPACE_REQUEST$', config('labolagen.laravel_generator.namespace.request'), $templateData);
 
-        $templateData = str_replace('$NAMESPACE_REPOSITORY$', config('infyom.laravel_generator.namespace.repository'), $templateData);
+        $templateData = str_replace('$NAMESPACE_REPOSITORY$', config('labolagen.laravel_generator.namespace.repository'), $templateData);
         $templateData = str_replace('$NAMESPACE_USER$', config('auth.providers.users.model'), $templateData);
 
         return $templateData;

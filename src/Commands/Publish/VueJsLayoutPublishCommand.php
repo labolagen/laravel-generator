@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Publish;
+namespace Labolagen\Generator\Commands\Publish;
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Utils\FileUtil;
 
 class VueJsLayoutPublishCommand extends PublishBaseCommand
 {
@@ -12,7 +12,7 @@ class VueJsLayoutPublishCommand extends PublishBaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.publish:vuejs';
+    protected $name = 'labolagen.publish:vuejs';
 
     /**
      * The console command description.
@@ -46,13 +46,13 @@ class VueJsLayoutPublishCommand extends PublishBaseCommand
 
     private function copyView()
     {
-        $viewsPath = config('infyom.laravel_generator.path.views', base_path('resources/views/'));
-        $resourcesPath = config('infyom.laravel_generator.path.resourcesPath', base_path('resources/'));
+        $viewsPath = config('labolagen.laravel_generator.path.views', base_path('resources/views/'));
+        $resourcesPath = config('labolagen.laravel_generator.path.resourcesPath', base_path('resources/'));
         $vendorPath = $resourcesPath.'assets/vendor/';
-        $assetsJsPath = config('infyom.laravel_generator.path.assetsJsPath', base_path('resources/assets/js/'));
-        $assetsCssPath = config('infyom.laravel_generator.path.assetsCssPath', base_path('resources/assets/css/'));
-        $templateType = config('infyom.laravel_generator.templates', 'core-templates');
-        $requestPath = config('infyom.laravel_generator.path.api_request', base_path('app/Http/Requests/'));
+        $assetsJsPath = config('labolagen.laravel_generator.path.assetsJsPath', base_path('resources/assets/js/'));
+        $assetsCssPath = config('labolagen.laravel_generator.path.assetsCssPath', base_path('resources/assets/css/'));
+        $templateType = config('labolagen.laravel_generator.templates', 'core-templates');
+        $requestPath = config('labolagen.laravel_generator.path.api_request', base_path('app/Http/Requests/'));
 
         $this->createDirectories($viewsPath);
         $this->createVueJsDirectories($viewsPath, $resourcesPath);
@@ -65,46 +65,46 @@ class VueJsLayoutPublishCommand extends PublishBaseCommand
         $baseRequestCustomFiles = $this->getRequestBaseCustomFile();
 
         foreach ($files as $stub => $blade) {
-            $sourceFile = base_path('vendor/infyomlabs/'.$templateType.'/templates/'.$stub);
+            $sourceFile = base_path('vendor/labolagen/'.$templateType.'/templates/'.$stub);
             $destinationFile = $viewsPath.$blade;
             $this->publishFile($sourceFile, $destinationFile, $blade);
         }
 
         foreach ($vueLayoutFiles as $stub => $blade) {
-            $sourceFile = base_path('vendor/infyomlabs/'.$templateType.'/templates/vuejs/'.$stub);
+            $sourceFile = base_path('vendor/labolagen/'.$templateType.'/templates/vuejs/'.$stub);
             $destinationFile = $viewsPath.$blade;
             $this->publishFile($sourceFile, $destinationFile, $blade);
         }
 
         foreach ($baseRequestCustomFiles as $stub => $php) {
-            $sourceFile = base_path('vendor/infyomlabs/laravel-generator/templates/'.$stub);
+            $sourceFile = base_path('vendor/labolagen/laravel-generator/templates/'.$stub);
             $destinationFile = $requestPath.$php;
             $this->publishFile($sourceFile, $destinationFile, $php);
         }
 
         foreach ($filesJs as $stub => $blade) {
-            $sourceFile = base_path('vendor/infyomlabs/laravel-generator/templates/'.$stub);
+            $sourceFile = base_path('vendor/labolagen/laravel-generator/templates/'.$stub);
             $destinationFile = $assetsJsPath.$blade;
             $this->publishFile($sourceFile, $destinationFile, $blade);
         }
 
         foreach ($filesCss as $stub => $blade) {
-            $sourceFile = base_path('vendor/infyomlabs/laravel-generator/templates/'.$stub);
+            $sourceFile = base_path('vendor/labolagen/laravel-generator/templates/'.$stub);
             $destinationFile = $assetsCssPath.$blade;
             $this->publishFile($sourceFile, $destinationFile, $blade);
         }
 
         foreach ($filesVendor as $stub => $blade) {
-            $sourceFile = base_path('vendor/infyomlabs/laravel-generator/templates/'.$stub);
+            $sourceFile = base_path('vendor/labolagen/laravel-generator/templates/'.$stub);
             $destinationFile = $vendorPath.$blade;
             $this->publishFile($sourceFile, $destinationFile, $blade);
         }
 
-        $sourceFile = base_path('vendor/infyomlabs/laravel-generator/templates/vuejs/js/gulpfile.js');
+        $sourceFile = base_path('vendor/labolagen/laravel-generator/templates/vuejs/js/gulpfile.js');
         $destinationFile = base_path().'/gulpfile.js';
         $this->publishFile($sourceFile, $destinationFile, 'gulpfile.js');
 
-        $sourceFile = base_path('vendor/infyomlabs/laravel-generator/templates/vuejs/js/package.json');
+        $sourceFile = base_path('vendor/labolagen/laravel-generator/templates/vuejs/js/package.json');
         $destinationFile = base_path().'/package.json';
         $this->publishFile($sourceFile, $destinationFile, 'package.json');
     }
@@ -219,16 +219,16 @@ class VueJsLayoutPublishCommand extends PublishBaseCommand
     {
         $templateData = str_replace(
             '$NAMESPACE_BACKEND_CONTROLLER$',
-            config('infyom.laravel_generator.namespace.backend_controller'), $templateData
+            config('labolagen.laravel_generator.namespace.backend_controller'), $templateData
         );
         $templateData = str_replace(
             '$NAMESPACE_FRONTEND_CONTROLLER$',
-            config('infyom.laravel_generator.namespace.frontend_controller'), $templateData
+            config('labolagen.laravel_generator.namespace.frontend_controller'), $templateData
         );
 
         $templateData = str_replace(
             '$NAMESPACE_REQUEST$',
-            config('infyom.laravel_generator.namespace.request'), $templateData
+            config('labolagen.laravel_generator.namespace.request'), $templateData
         );
 
         return $templateData;

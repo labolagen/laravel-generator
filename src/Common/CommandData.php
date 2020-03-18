@@ -1,12 +1,12 @@
 <?php
 
-namespace InfyOm\Generator\Common;
+namespace Labolagen\Generator\Common;
 
 use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use InfyOm\Generator\Utils\GeneratorFieldsInputUtil;
-use InfyOm\Generator\Utils\TableFieldsGenerator;
+use Labolagen\Generator\Utils\GeneratorFieldsInputUtil;
+use Labolagen\Generator\Utils\TableFieldsGenerator;
 
 class CommandData
 {
@@ -178,7 +178,7 @@ class CommandData
             }
         }
 
-        if (config('infyom.laravel_generator.timestamps.enabled', true)) {
+        if (config('labolagen.laravel_generator.timestamps.enabled', true)) {
             $this->addTimestamps();
         }
     }
@@ -223,7 +223,7 @@ class CommandData
                 } elseif (file_exists(base_path($fieldsFileValue))) {
                     $filePath = base_path($fieldsFileValue);
                 } else {
-                    $schemaFileDirector = config('infyom.laravel_generator.path.schema_files');
+                    $schemaFileDirector = config('labolagen.laravel_generator.path.schema_files');
                     $filePath = $schemaFileDirector.$fieldsFileValue;
                 }
 

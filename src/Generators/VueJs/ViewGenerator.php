@@ -1,11 +1,11 @@
 <?php
 
-namespace InfyOm\Generator\Generators\VueJs;
+namespace Labolagen\Generator\Generators\VueJs;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
-use InfyOm\Generator\Utils\FileUtil;
-use InfyOm\Generator\Utils\GeneratorFieldsInputUtil;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\BaseGenerator;
+use Labolagen\Generator\Utils\FileUtil;
+use Labolagen\Generator\Utils\GeneratorFieldsInputUtil;
 
 class ViewGenerator extends BaseGenerator
 {
@@ -25,7 +25,7 @@ class ViewGenerator extends BaseGenerator
     {
         $this->commandData = $commandData;
         $this->path = $commandData->config->pathViews;
-        $this->templateType = config('infyom.laravel_generator.templates', 'core-templates');
+        $this->templateType = config('labolagen.laravel_generator.templates', 'core-templates');
     }
 
     public function generate()

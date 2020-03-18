@@ -1,8 +1,8 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Publish;
+namespace Labolagen\Generator\Commands\Publish;
 
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Utils\FileUtil;
 use Symfony\Component\Console\Input\InputOption;
 
 class GeneratorPublishCommand extends PublishBaseCommand
@@ -12,7 +12,7 @@ class GeneratorPublishCommand extends PublishBaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:publish';
+    protected $name = 'labolagen:publish';
 
     /**
      * The console command description.
@@ -46,8 +46,8 @@ class GeneratorPublishCommand extends PublishBaseCommand
      */
     private function fillTemplate($templateData)
     {
-        $apiVersion = config('infyom.laravel_generator.api_version', 'v1');
-        $apiPrefix = config('infyom.laravel_generator.api_prefix', 'api');
+        $apiVersion = config('labolagen.laravel_generator.api_version', 'v1');
+        $apiPrefix = config('labolagen.laravel_generator.api_prefix', 'api');
 
         $templateData = str_replace('$API_VERSION$', $apiVersion, $templateData);
         $templateData = str_replace('$API_PREFIX$', $apiPrefix, $templateData);
@@ -60,10 +60,10 @@ class GeneratorPublishCommand extends PublishBaseCommand
 
     private function publishTestCases()
     {
-        $testsPath = config('infyom.laravel_generator.path.tests', base_path('tests/'));
-        $testsNameSpace = config('infyom.laravel_generator.namespace.tests', 'Tests');
-        $createdAtField = config('infyom.laravel_generator.timestamps.created_at', 'created_at');
-        $updatedAtField = config('infyom.laravel_generator.timestamps.updated_at', 'updated_at');
+        $testsPath = config('labolagen.laravel_generator.path.tests', base_path('tests/'));
+        $testsNameSpace = config('labolagen.laravel_generator.namespace.tests', 'Tests');
+        $createdAtField = config('labolagen.laravel_generator.timestamps.created_at', 'created_at');
+        $updatedAtField = config('labolagen.laravel_generator.timestamps.updated_at', 'updated_at');
 
         $templateData = get_template('test.api_test_trait', 'laravel-generator');
 
@@ -79,13 +79,13 @@ class GeneratorPublishCommand extends PublishBaseCommand
         FileUtil::createFile($testsPath, $fileName, $templateData);
         $this->info('ApiTestTrait created');
 
-        $testAPIsPath = config('infyom.laravel_generator.path.api_test', base_path('tests/APIs/'));
+        $testAPIsPath = config('labolagen.laravel_generator.path.api_test', base_path('tests/APIs/'));
         if (!file_exists($testAPIsPath)) {
             FileUtil::createDirectoryIfNotExist($testAPIsPath);
             $this->info('APIs Tests directory created');
         }
 
-        $testRepositoriesPath = config('infyom.laravel_generator.path.repository_test', base_path('tests/Repositories/'));
+        $testRepositoriesPath = config('labolagen.laravel_generator.path.repository_test', base_path('tests/Repositories/'));
         if (!file_exists($testRepositoriesPath)) {
             FileUtil::createDirectoryIfNotExist($testRepositoriesPath);
             $this->info('Repositories Tests directory created');
@@ -142,15 +142,15 @@ class GeneratorPublishCommand extends PublishBaseCommand
     }
 
     public function publishMenuView(){
-        $viewsPath = config('infyom.laravel_generator.path.views', base_path('resources/views/'));
-        $menuPath = config('infyom.laravel_generator.add_on.menu.menus_folder', 'backend/includes/menus');
+        $viewsPath = config('labolagen.laravel_generator.path.views', base_path('resources/views/'));
+        $menuPath = config('labolagen.laravel_generator.add_on.menu.menus_folder', 'backend/includes/menus');
         if(!file_exists($viewsPath.$menuPath)){
             FileUtil::createDirectoryIfNotExist($viewsPath.$menuPath);
 
             $this->comment('Menu folder created at '.$viewsPath.$menuPath);
         }
 
-        $menuBladeFile = config('infyom.laravel_generator.add_on.menu.menu_file', 'backend/includes/menu.blade.php');
+        $menuBladeFile = config('labolagen.laravel_generator.add_on.menu.menu_file', 'backend/includes/menu.blade.php');
         if(!file_exists($viewsPath.$menuBladeFile)){
             file_put_contents($viewsPath.$menuBladeFile, '');
 

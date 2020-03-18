@@ -1,7 +1,7 @@
 {
-    "name": "infyomlabs/laravel-generator",
+    "name": "labolagen/laravel-generator",
     "type": "library",
-    "description": "InfyOm Laravel Generator",
+    "description": "Labolagen, laravel-boilerplate + laravel-generator",
     "keywords": [
         "laravel",
         "api",
@@ -14,7 +14,8 @@
         "view",
         "test",
         "generator",
-        "swagger"
+        "swagger",
+        "labolagen"
     ],
     "license": "MIT",
     "authors": [
@@ -33,7 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "InfyOm\\Generator\\": "src/"
+            "Labolagen\\Generator\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -47,7 +48,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "\\InfyOm\\Generator\\InfyOmGeneratorServiceProvider"
+                "\\Labolagen\\Generator\\LabolagenGeneratorServiceProvider"
             ]
         }
     }    

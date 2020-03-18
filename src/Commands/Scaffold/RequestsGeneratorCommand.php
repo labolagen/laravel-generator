@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Scaffold;
+namespace Labolagen\Generator\Commands\Scaffold;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
+use Labolagen\Generator\Commands\BaseCommand;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\Scaffold\RequestGenerator;
 
 class RequestsGeneratorCommand extends BaseCommand
 {
@@ -13,7 +13,7 @@ class RequestsGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.scaffold:requests';
+    protected $name = 'labolagen.scaffold:requests';
 
     /**
      * The console command description.

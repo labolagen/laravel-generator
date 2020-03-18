@@ -2,7 +2,7 @@
 
 namespace Tests\Utils;
 
-use InfyOm\Generator\Utils\ResponseUtil;
+use Labolagen\Generator\Utils\ResponseUtil;
 use PHPUnit_Framework_TestCase;
 
 class ResponseUtilTest extends PHPUnit_Framework_TestCase

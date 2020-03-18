@@ -1,28 +1,28 @@
 <?php
 
-namespace InfyOm\Generator\Commands;
+namespace Labolagen\Generator\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\API\APIControllerGenerator;
-use InfyOm\Generator\Generators\API\APIRequestGenerator;
-use InfyOm\Generator\Generators\API\APIRoutesGenerator;
-use InfyOm\Generator\Generators\API\APITestGenerator;
-use InfyOm\Generator\Generators\FactoryGenerator;
-use InfyOm\Generator\Generators\MigrationGenerator;
-use InfyOm\Generator\Generators\ModelGenerator;
-use InfyOm\Generator\Generators\RepositoryGenerator;
-use InfyOm\Generator\Generators\RepositoryTestGenerator;
-use InfyOm\Generator\Generators\Scaffold\BreadcrumbGenerator;
-use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
-use InfyOm\Generator\Generators\Scaffold\LocaleGenerator;
-use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
-use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
-use InfyOm\Generator\Generators\Scaffold\RoutesGenerator;
-use InfyOm\Generator\Generators\Scaffold\ViewGenerator;
-use InfyOm\Generator\Generators\SeederGenerator;
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\API\APIControllerGenerator;
+use Labolagen\Generator\Generators\API\APIRequestGenerator;
+use Labolagen\Generator\Generators\API\APIRoutesGenerator;
+use Labolagen\Generator\Generators\API\APITestGenerator;
+use Labolagen\Generator\Generators\FactoryGenerator;
+use Labolagen\Generator\Generators\MigrationGenerator;
+use Labolagen\Generator\Generators\ModelGenerator;
+use Labolagen\Generator\Generators\RepositoryGenerator;
+use Labolagen\Generator\Generators\RepositoryTestGenerator;
+use Labolagen\Generator\Generators\Scaffold\BreadcrumbGenerator;
+use Labolagen\Generator\Generators\Scaffold\ControllerGenerator;
+use Labolagen\Generator\Generators\Scaffold\LocaleGenerator;
+use Labolagen\Generator\Generators\Scaffold\MenuGenerator;
+use Labolagen\Generator\Generators\Scaffold\RequestGenerator;
+use Labolagen\Generator\Generators\Scaffold\RoutesGenerator;
+use Labolagen\Generator\Generators\Scaffold\ViewGenerator;
+use Labolagen\Generator\Generators\SeederGenerator;
+use Labolagen\Generator\Utils\FileUtil;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -178,7 +178,7 @@ class BaseCommand extends Command
 
     public function runMigration()
     {
-        $migrationPath = config('infyom.laravel_generator.path.migration', database_path('migrations/'));
+        $migrationPath = config('labolagen.laravel_generator.path.migration', database_path('migrations/'));
         $path = Str::after($migrationPath, base_path()); // get path after base_path
         $this->call('migrate', ['--path' => $path, '--force' => true]);
 
@@ -225,7 +225,7 @@ class BaseCommand extends Command
             ];
         }
 
-        $path = config('infyom.laravel_generator.path.schema_files', resource_path('model_schemas/'));
+        $path = config('labolagen.laravel_generator.path.schema_files', resource_path('model_schemas/'));
 
         $fileName = $this->commandData->modelName.'.json';
 

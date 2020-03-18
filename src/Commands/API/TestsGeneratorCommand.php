@@ -1,11 +1,11 @@
 <?php
 
-namespace InfyOm\Generator\Commands\API;
+namespace Labolagen\Generator\Commands\API;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\API\APITestGenerator;
-use InfyOm\Generator\Generators\RepositoryTestGenerator;
+use Labolagen\Generator\Commands\BaseCommand;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\API\APITestGenerator;
+use Labolagen\Generator\Generators\RepositoryTestGenerator;
 
 class TestsGeneratorCommand extends BaseCommand
 {
@@ -14,7 +14,7 @@ class TestsGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.api:tests';
+    protected $name = 'labolagen.api:tests';
 
     /**
      * The console command description.

@@ -1,18 +1,18 @@
 <?php
 
-namespace InfyOm\Generator\Commands\VueJs;
+namespace Labolagen\Generator\Commands\VueJs;
 
-use InfyOm\Generator\Commands\BaseCommand;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\MigrationGenerator;
-use InfyOm\Generator\Generators\ModelGenerator;
-use InfyOm\Generator\Generators\RepositoryGenerator;
-use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
-use InfyOm\Generator\Generators\VueJs\APIRequestGenerator;
-use InfyOm\Generator\Generators\VueJs\ControllerGenerator;
-use InfyOm\Generator\Generators\VueJs\ModelJsConfigGenerator;
-use InfyOm\Generator\Generators\VueJs\RoutesGenerator;
-use InfyOm\Generator\Generators\VueJs\ViewGenerator;
+use Labolagen\Generator\Commands\BaseCommand;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\MigrationGenerator;
+use Labolagen\Generator\Generators\ModelGenerator;
+use Labolagen\Generator\Generators\RepositoryGenerator;
+use Labolagen\Generator\Generators\Scaffold\MenuGenerator;
+use Labolagen\Generator\Generators\VueJs\APIRequestGenerator;
+use Labolagen\Generator\Generators\VueJs\ControllerGenerator;
+use Labolagen\Generator\Generators\VueJs\ModelJsConfigGenerator;
+use Labolagen\Generator\Generators\VueJs\RoutesGenerator;
+use Labolagen\Generator\Generators\VueJs\ViewGenerator;
 
 class VueJsGeneratorCommand extends BaseCommand
 {
@@ -21,7 +21,7 @@ class VueJsGeneratorCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom:vuejs';
+    protected $name = 'labolagen:vuejs';
 
     /**
      * The console command description.

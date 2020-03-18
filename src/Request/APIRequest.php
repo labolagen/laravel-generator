@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Request;
+namespace Labolagen\Generator\Request;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Arr;
-use InfyOm\Generator\Utils\ResponseUtil;
+use Labolagen\Generator\Utils\ResponseUtil;
 use Response;
 
 class APIRequest extends FormRequest

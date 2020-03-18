@@ -1,9 +1,9 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Publish;
+namespace Labolagen\Generator\Commands\Publish;
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Utils\FileUtil;
 use Symfony\Component\Console\Input\InputOption;
 
 class LayoutPublishCommand extends PublishBaseCommand
@@ -13,7 +13,7 @@ class LayoutPublishCommand extends PublishBaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.publish:layout';
+    protected $name = 'labolagen.publish:layout';
 
     /**
      * The console command description.
@@ -34,8 +34,8 @@ class LayoutPublishCommand extends PublishBaseCommand
 
     private function copyView()
     {
-        $viewsPath = config('infyom.laravel_generator.path.views', resource_path('views/'));
-        $templateType = config('infyom.laravel_generator.templates', 'coreui-templates');
+        $viewsPath = config('labolagen.laravel_generator.path.views', resource_path('views/'));
+        $templateType = config('labolagen.laravel_generator.templates', 'coreui-templates');
 
         $this->createDirectories($viewsPath);
 
@@ -84,17 +84,17 @@ class LayoutPublishCommand extends PublishBaseCommand
     {
         $templateData = str_replace(
             '$NAMESPACE_BACKEND_CONTROLLER$',
-            config('infyom.laravel_generator.namespace.backend_controller'), $templateData
+            config('labolagen.laravel_generator.namespace.backend_controller'), $templateData
         );
 
         $templateData = str_replace(
             '$NAMESPACE_FRONTEND_CONTROLLER$',
-            config('infyom.laravel_generator.namespace.frontend_controller'), $templateData
+            config('labolagen.laravel_generator.namespace.frontend_controller'), $templateData
         );
 
         $templateData = str_replace(
             '$NAMESPACE_REQUEST$',
-            config('infyom.laravel_generator.namespace.request'), $templateData
+            config('labolagen.laravel_generator.namespace.request'), $templateData
         );
 
         return $templateData;

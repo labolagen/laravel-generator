@@ -1,6 +1,6 @@
 <?php
 
-namespace InfyOm\Generator\Common;
+namespace Labolagen\Generator\Common;
 
 class TemplatesManager
 {

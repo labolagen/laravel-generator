@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Generators\API;
+namespace Labolagen\Generator\Generators\API;
 
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
-use InfyOm\Generator\Utils\FileUtil;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\BaseGenerator;
+use Labolagen\Generator\Utils\FileUtil;
 
 class TestGenerator extends BaseGenerator
 {

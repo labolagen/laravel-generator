@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\GeneratorField;
+use Labolagen\Generator\Common\GeneratorField;
 
 if (!function_exists('infy_tab')) {
     /**
@@ -90,8 +90,8 @@ if (!function_exists('get_template_file_path')) {
         $templateName = str_replace('.', '/', $templateName);
 
         $templatesPath = config(
-            'infyom.laravel_generator.path.templates_dir',
-            resource_path('infyom/infyom-generator-templates/')
+            'labolagen.laravel_generator.path.templates_dir',
+            resource_path('labolagen/labolagen-generator-templates/')
         );
 
         $path = $templatesPath.$templateName.'.stub';
@@ -100,7 +100,7 @@ if (!function_exists('get_template_file_path')) {
             return $path;
         }
 
-        return base_path('vendor/infyomlabs/'.$templateType.'/templates/'.$templateName.'.stub');
+        return base_path('vendor/labolagen/'.$templateType.'/templates/'.$templateName.'.stub');
     }
 }
 

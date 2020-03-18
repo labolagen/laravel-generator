@@ -1,10 +1,10 @@
 <?php
 
-namespace InfyOm\Generator\Generators\Vuejs;
+namespace Labolagen\Generator\Generators\Vuejs;
 
 use Illuminate\Support\Str;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\BaseGenerator;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\BaseGenerator;
 
 class RoutesGenerator extends BaseGenerator
 {

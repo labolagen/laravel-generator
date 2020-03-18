@@ -1,6 +1,6 @@
 <?php
 
-namespace InfyOm\Generator\Commands\Publish;
+namespace Labolagen\Generator\Commands\Publish;
 
 class PublishTemplateCommand extends PublishBaseCommand
 {
@@ -9,7 +9,7 @@ class PublishTemplateCommand extends PublishBaseCommand
      *
      * @var string
      */
-    protected $name = 'infyom.publish:templates';
+    protected $name = 'labolagen.publish:templates';
 
     /**
      * The console command description.
@@ -28,8 +28,8 @@ class PublishTemplateCommand extends PublishBaseCommand
     public function handle()
     {
         $this->templatesDir = config(
-            'infyom.laravel_generator.path.templates_dir',
-            resource_path('infyom/infyom-generator-templates/')
+            'labolagen.laravel_generator.path.templates_dir',
+            resource_path('labolagen/labolagen-generator-templates/')
         );
 
         if ($this->publishGeneratorTemplates()) {
@@ -45,7 +45,7 @@ class PublishTemplateCommand extends PublishBaseCommand
     {
         $templatesPath = __DIR__.'/../../../templates';
 
-        return $this->publishDirectory($templatesPath, $this->templatesDir, 'infyom-generator-templates');
+        return $this->publishDirectory($templatesPath, $this->templatesDir, 'labolagen-generator-templates');
     }
 
     /**
@@ -53,11 +53,11 @@ class PublishTemplateCommand extends PublishBaseCommand
      */
     public function publishScaffoldTemplates()
     {
-        $templateType = config('infyom.laravel_generator.templates', 'coreui-templates');
+        $templateType = config('labolagen.laravel_generator.templates', 'coreui-templates');
 
-        $templatesPath = base_path('vendor/infyomlabs/'.$templateType.'/templates/scaffold');
+        $templatesPath = base_path('vendor/labolagen/'.$templateType.'/templates/scaffold');
 
-        return $this->publishDirectory($templatesPath, $this->templatesDir.'scaffold', 'infyom-generator-templates/scaffold', true);
+        return $this->publishDirectory($templatesPath, $this->templatesDir.'scaffold', 'labolagen-generator-templates/scaffold', true);
     }
 
     /**
@@ -65,7 +65,7 @@ class PublishTemplateCommand extends PublishBaseCommand
      */
     public function publishSwaggerTemplates()
     {
-        $templatesPath = base_path('vendor/infyomlabs/swagger-generator/templates');
+        $templatesPath = base_path('vendor/labolagen/swagger-generator/templates');
 
         return $this->publishDirectory($templatesPath, $this->templatesDir, 'swagger-generator', true);
     }

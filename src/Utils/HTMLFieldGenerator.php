@@ -1,8 +1,8 @@
 <?php
 
-namespace InfyOm\Generator\Utils;
+namespace Labolagen\Generator\Utils;
 
-use InfyOm\Generator\Common\GeneratorField;
+use Labolagen\Generator\Common\GeneratorField;
 
 class HTMLFieldGenerator
 {

@@ -1,29 +1,29 @@
 <?php
 
-namespace InfyOm\Generator\Commands;
+namespace Labolagen\Generator\Commands;
 
 use Illuminate\Console\Command;
-use InfyOm\Generator\Common\CommandData;
-use InfyOm\Generator\Generators\API\APIControllerGenerator;
-use InfyOm\Generator\Generators\API\APIRequestGenerator;
-use InfyOm\Generator\Generators\API\APIRoutesGenerator;
-use InfyOm\Generator\Generators\API\APITestGenerator;
-use InfyOm\Generator\Generators\FactoryGenerator;
-use InfyOm\Generator\Generators\MigrationGenerator;
-use InfyOm\Generator\Generators\ModelGenerator;
-use InfyOm\Generator\Generators\RepositoryGenerator;
-use InfyOm\Generator\Generators\RepositoryTestGenerator;
-use InfyOm\Generator\Generators\Scaffold\BreadcrumbGenerator;
-use InfyOm\Generator\Generators\Scaffold\ControllerGenerator;
-use InfyOm\Generator\Generators\Scaffold\LocaleGenerator;
-use InfyOm\Generator\Generators\Scaffold\MenuGenerator;
-use InfyOm\Generator\Generators\Scaffold\RequestGenerator;
-use InfyOm\Generator\Generators\Scaffold\RoutesGenerator;
-use InfyOm\Generator\Generators\Scaffold\ViewGenerator;
-use InfyOm\Generator\Generators\VueJs\ControllerGenerator as VueJsControllerGenerator;
-use InfyOm\Generator\Generators\VueJs\ModelJsConfigGenerator;
-use InfyOm\Generator\Generators\VueJs\RoutesGenerator as VueJsRoutesGenerator;
-use InfyOm\Generator\Generators\VueJs\ViewGenerator as VueJsViewGenerator;
+use Labolagen\Generator\Common\CommandData;
+use Labolagen\Generator\Generators\API\APIControllerGenerator;
+use Labolagen\Generator\Generators\API\APIRequestGenerator;
+use Labolagen\Generator\Generators\API\APIRoutesGenerator;
+use Labolagen\Generator\Generators\API\APITestGenerator;
+use Labolagen\Generator\Generators\FactoryGenerator;
+use Labolagen\Generator\Generators\MigrationGenerator;
+use Labolagen\Generator\Generators\ModelGenerator;
+use Labolagen\Generator\Generators\RepositoryGenerator;
+use Labolagen\Generator\Generators\RepositoryTestGenerator;
+use Labolagen\Generator\Generators\Scaffold\BreadcrumbGenerator;
+use Labolagen\Generator\Generators\Scaffold\ControllerGenerator;
+use Labolagen\Generator\Generators\Scaffold\LocaleGenerator;
+use Labolagen\Generator\Generators\Scaffold\MenuGenerator;
+use Labolagen\Generator\Generators\Scaffold\RequestGenerator;
+use Labolagen\Generator\Generators\Scaffold\RoutesGenerator;
+use Labolagen\Generator\Generators\Scaffold\ViewGenerator;
+use Labolagen\Generator\Generators\VueJs\ControllerGenerator as VueJsControllerGenerator;
+use Labolagen\Generator\Generators\VueJs\ModelJsConfigGenerator;
+use Labolagen\Generator\Generators\VueJs\RoutesGenerator as VueJsRoutesGenerator;
+use Labolagen\Generator\Generators\VueJs\ViewGenerator as VueJsViewGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -40,7 +40,7 @@ class RollbackGeneratorCommand extends Command
      *
      * @var string
      */
-    protected $name = 'infyom:rollback';
+    protected $name = 'labolagen:rollback';
     /**
      * The console command description.
      *
