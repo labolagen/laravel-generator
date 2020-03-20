@@ -20,10 +20,6 @@ use Labolagen\Generator\Generators\Scaffold\MenuGenerator;
 use Labolagen\Generator\Generators\Scaffold\RequestGenerator;
 use Labolagen\Generator\Generators\Scaffold\RoutesGenerator;
 use Labolagen\Generator\Generators\Scaffold\ViewGenerator;
-use Labolagen\Generator\Generators\VueJs\ControllerGenerator as VueJsControllerGenerator;
-use Labolagen\Generator\Generators\VueJs\ModelJsConfigGenerator;
-use Labolagen\Generator\Generators\VueJs\RoutesGenerator as VueJsRoutesGenerator;
-use Labolagen\Generator\Generators\VueJs\ViewGenerator as VueJsViewGenerator;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
@@ -74,7 +70,6 @@ class RollbackGeneratorCommand extends Command
             CommandData::$COMMAND_TYPE_API,
             CommandData::$COMMAND_TYPE_SCAFFOLD,
             CommandData::$COMMAND_TYPE_API_SCAFFOLD,
-            CommandData::$COMMAND_TYPE_VUEJS,
         ])) {
             $this->error('invalid rollback type');
         }
@@ -125,18 +120,6 @@ class RollbackGeneratorCommand extends Command
 
         $routeGenerator = new RoutesGenerator($this->commandData);
         $routeGenerator->rollback();
-
-        $controllerGenerator = new VueJsControllerGenerator($this->commandData);
-        $controllerGenerator->rollback();
-
-        $routesGenerator = new VueJsRoutesGenerator($this->commandData);
-        $routesGenerator->rollback();
-
-        $viewGenerator = new VueJsViewGenerator($this->commandData);
-        $viewGenerator->rollback();
-
-        $modelJsConfigGenerator = new ModelJsConfigGenerator($this->commandData);
-        $modelJsConfigGenerator->rollback();
 
         $factoryGenerator = new FactoryGenerator($this->commandData);
         $factoryGenerator->rollback();

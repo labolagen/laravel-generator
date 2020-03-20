@@ -21,8 +21,6 @@ Usage
 
 Because `laravel-boilerplate` is using CoreUI, so I've just implemented `coreui-templates`, it doesn't support `adminlte-templates` or any other templates which InfyOmLabs provided.
 
-One thing more, vuejs templates has not been adjust to use with this package. I will remove it in the near future, so don't use it.
-
 If you want to use DataTables in admin panel, do the following:
 
 1. `composer require yajra/laravel-datatables:^1.5`

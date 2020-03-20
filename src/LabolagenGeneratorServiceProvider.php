@@ -15,13 +15,11 @@ use Labolagen\Generator\Commands\Publish\GeneratorPublishCommand;
 use Labolagen\Generator\Commands\Publish\LayoutPublishCommand;
 use Labolagen\Generator\Commands\Publish\PublishTemplateCommand;
 use Labolagen\Generator\Commands\Publish\PublishUserCommand;
-use Labolagen\Generator\Commands\Publish\VueJsLayoutPublishCommand;
 use Labolagen\Generator\Commands\RollbackGeneratorCommand;
 use Labolagen\Generator\Commands\Scaffold\ControllerGeneratorCommand;
 use Labolagen\Generator\Commands\Scaffold\RequestsGeneratorCommand;
 use Labolagen\Generator\Commands\Scaffold\ScaffoldGeneratorCommand;
 use Labolagen\Generator\Commands\Scaffold\ViewsGeneratorCommand;
-use Labolagen\Generator\Commands\VueJs\VueJsGeneratorCommand;
 
 class LabolagenGeneratorServiceProvider extends ServiceProvider
 {
@@ -110,13 +108,6 @@ class LabolagenGeneratorServiceProvider extends ServiceProvider
             return new RollbackGeneratorCommand();
         });
 
-        $this->app->singleton('labolagen.vuejs', function ($app) {
-            return new VueJsGeneratorCommand();
-        });
-        $this->app->singleton('labolagen.publish.vuejs', function ($app) {
-            return new VueJsLayoutPublishCommand();
-        });
-
         $this->app->singleton('labolagen.publish.user', function ($app) {
             return new PublishUserCommand();
         });
@@ -138,8 +129,6 @@ class LabolagenGeneratorServiceProvider extends ServiceProvider
             'labolagen.scaffold.requests',
             'labolagen.scaffold.views',
             'labolagen.rollback',
-            'labolagen.vuejs',
-            'labolagen.publish.vuejs',
             'labolagen.publish.user',
         ]);
     }
