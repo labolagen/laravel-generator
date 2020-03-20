@@ -31,7 +31,7 @@
     "require": {
         "php": ">=7.2",
         "illuminate/support": "^6.0.0",
-        "labolagen/coreui-templates": "^6.0-dev"
+        "labolagen/coreui-templates": "dev-develop"
     },
     "require-dev": {
         "phpunit/phpunit": "~5.0",

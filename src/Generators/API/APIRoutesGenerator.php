@@ -23,7 +23,7 @@ class APIRoutesGenerator extends BaseGenerator
     public function __construct(CommandData $commandData)
     {
         $this->commandData = $commandData;
-        $this->path = $commandData->config->pathApiRoutes.DIRECTORY_SEPARATOR.$this->commandData->config->mSnakePlural.'.php';
+        $this->path = $commandData->config->pathApiRoutes;
 
         if (!empty($this->commandData->config->prefixes['route'])) {
             $routesTemplate = get_template('api.routes.prefix_routes', 'laravel-generator');
@@ -36,6 +36,7 @@ class APIRoutesGenerator extends BaseGenerator
 
     public function generate()
     {
+        dump(1);
         $this->routeContents = file_get_contents($this->path);
         $this->routeContents .= "\n\n".$this->routesTemplate;
         $existingRouteContents = file_get_contents($this->path);

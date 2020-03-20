@@ -21,7 +21,7 @@ return [
 
         'routes'            => base_path('routes/backend/'),
 
-        'api_routes'        => base_path('routes/frontend/'),
+        'api_routes'        => base_path('routes/api.php'),
 
         'request'           => app_path('Http/Requests/'),
 
