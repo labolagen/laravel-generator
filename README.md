@@ -14,7 +14,7 @@ Usage
 ==========================
 
 1. Install [rappasoft/laravel-boilerplate](http://laravel-boilerplate.com)
-2. `composer require labolagen/laravel-generator:^6.0-develop`
+2. `composer require labolagen/laravel-generator:^6.0-dev`
 3. Use it as `InfyOmLabs/laravel-generator`.
 
 Because `laravel-boilerplate` is using CoreUI, so I've just implemented `coreui-templates`, it doesn't support `adminlte-templates` or any other templates which InfyOmLabs provided.
