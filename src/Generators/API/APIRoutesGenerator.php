@@ -36,15 +36,14 @@ class APIRoutesGenerator extends BaseGenerator
 
     public function generate()
     {
-        dump(1);
         $this->routeContents = file_get_contents($this->path);
-        $this->routeContents .= "\n\n".$this->routesTemplate;
-        $existingRouteContents = file_get_contents($this->path);
-        if (Str::contains($existingRouteContents, "Route::resource('".$this->commandData->config->mSnakePlural."',")) {
+        if (Str::contains($this->routeContents, "Route::resource('".$this->commandData->config->mSnakePlural."',")) {
             $this->commandData->commandObj->info('Menu '.$this->commandData->config->mPlural.'is already exists, Skipping Adjustment.');
 
             return;
         }
+
+        $this->routeContents .= $this->routesTemplate."\n";
 
         file_put_contents($this->path, $this->routeContents);
 
@@ -53,9 +52,16 @@ class APIRoutesGenerator extends BaseGenerator
 
     public function rollback()
     {
+        $this->routeContents = file_get_contents($this->path);
         if (file_exists($this->path)) {
-            unlink($this->path);
-            $this->commandData->commandComment('api routes deleted');
+            $routeContents = str_replace($this->routesTemplate."\n",'', $this->routeContents);
+
+            // If route content length has changed after replacement,
+            // consider that route has been removed.
+            if(strlen($this->routeContents) != strlen($routeContents)){
+                file_put_contents($this->path, $routeContents);
+                $this->commandData->commandComment('api routes deleted');
+            }
         }
     }
 }
