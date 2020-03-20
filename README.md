@@ -26,7 +26,7 @@ If you want to use DataTables in admin panel, do the following:
 1. `composer require yajra/laravel-datatables:^1.5`
 2. `php artisan vendor:publish --tag=datatables-buttons`
 Documentation is located [here](http://labs.labolagen.com/laravelgenerator)
-3. `npm install datatables.net datatables.net-bs4 datatables.net-buttons datatables.net-buttons-bs4`
+3. `npm install --save-dev datatables.net datatables.net-bs4 datatables.net-buttons datatables.net-buttons-bs4`
 4. Add the follwing code at the bottom of `resources/js/backend/app.js`:
 ```javascript
 import $ from 'jquery';
