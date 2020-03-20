@@ -91,7 +91,7 @@ class MenuGenerator extends BaseGenerator
         $existingMenuContents = file_get_contents($this->menuBladePath);
         if (Str::contains($existingMenuContents, $this->menuIncludeContent)) {
             file_put_contents($this->menuBladePath, str_replace($this->menuIncludeContent, '', $existingMenuContents));
-            $this->commandData->commandComment('menu deleted');
+            $this->commandData->commandInfo('Menu deleted.');
         }
 
         if(file_exists($this->menuFilePath.$this->fileName)){
