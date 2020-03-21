@@ -17,8 +17,9 @@ Usage
 2. `composer require labolagen/laravel-generator:^6.0-dev`
 3. `php artisan vendor:publish --provider="Labolagen\Generator\LabolagenGeneratorServiceProvider"`
 4. `php artisan labolagen:publish`
-5. Open `app/Providers/RouteServiceProvider.php`, found `mapApiRoutes` function, add `."\\API"` at the end of `$this->namespace`(i.e. `->namespace($this->namespace."\\API")`).
-6. Use it as `InfyOmLabs/laravel-generator`.
+5. `php artisan labolagen.publish:layout`
+6. Open `app/Providers/RouteServiceProvider.php`, found `mapApiRoutes` function, add `."\\API"` at the end of `$this->namespace`(i.e. `->namespace($this->namespace."\\API")`).
+7. Use it as `InfyOmLabs/laravel-generator`.
 
 Because `laravel-boilerplate` is using CoreUI, so I've just implemented `coreui-templates`, it doesn't support `adminlte-templates` or any other templates which InfyOmLabs provided.
 
