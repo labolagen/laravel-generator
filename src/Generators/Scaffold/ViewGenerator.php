@@ -259,7 +259,7 @@ class ViewGenerator extends BaseGenerator
                     $sizeText = $validationText;
                 }
 
-                $size = "->attribute('$sizeText' => $sizeInNumber)";
+                $size = "->attribute('$sizeText', $sizeInNumber)";
                 $minMaxRules .= $size;
             }
             $this->commandData->addDynamicVariable('$SIZE$', $minMaxRules);
