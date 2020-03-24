@@ -39,7 +39,7 @@ class ViewGenerator extends BaseGenerator
 
         $htmlInputs = Arr::pluck($this->commandData->fields, 'htmlInput');
         if (in_array('file', $htmlInputs)) {
-            $this->commandData->addDynamicVariable('$FILES$', '->attribute(\'enctype\', \'multipart/form-data\'');
+            $this->commandData->addDynamicVariable('$FILES$', '->attribute(\'enctype\', \'multipart/form-data\')');
         }
 
         $this->commandData->commandComment("\nGenerating Views...");
