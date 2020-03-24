@@ -61,7 +61,7 @@ class LocaleGenerator extends BaseGenerator
             $fullPath = $parentDirectory.$this->fileName;
             if (file_exists($fullPath)) {
                 $this->commandData->commandObj->warn('Locale '.$lang.' already exists, Skipping genearte locale file.');
-                break;
+                continue;
             }
 
             FileUtil::createFile($parentDirectory, $this->fileName, $this->localeContents);
