@@ -27,9 +27,9 @@ return [
 
         'api_request'       => app_path('Http/Requests/API/'),
 
-        'backend_controller'  => app_path('Http/Controllers/Backend'),
+        'backend_controller'  => app_path('Http/Controllers/Backend/'),
 
-        'frontend_controller' => app_path('Http/Controllers/Frontend'),
+        'frontend_controller' => app_path('Http/Controllers/Frontend/'),
 
         'api_controller'    => app_path('Http/Controllers/API/'),
 
