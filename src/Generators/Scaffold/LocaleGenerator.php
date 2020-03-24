@@ -5,8 +5,9 @@ namespace Labolagen\Generator\Generators\Scaffold;
 use Illuminate\Support\Str;
 use Labolagen\Generator\Common\CommandData;
 use Labolagen\Generator\Utils\FileUtil;
+use Labolagen\Generator\Generators\BaseGenerator;
 
-class LocaleGenerator
+class LocaleGenerator extends BaseGenerator
 {
     /** @var CommandData */
     private $commandData;
