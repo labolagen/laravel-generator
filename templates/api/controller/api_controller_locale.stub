@@ -28,7 +28,7 @@ class $MODEL_NAME$APIController extends Controller
 
         return $this->sendResponse(
             $$MODEL_NAME_PLURAL_CAMEL$->toArray(),
-            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.backend.retrieved')
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.retrieved')
         );
     }
 
@@ -41,7 +41,7 @@ class $MODEL_NAME$APIController extends Controller
 
         return $this->sendResponse(
             $$MODEL_NAME_CAMEL$->toArray(),
-            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.backend.created')
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.created')
         );
     }
 
@@ -53,13 +53,13 @@ class $MODEL_NAME$APIController extends Controller
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             return $this->sendError(
-                __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.backend.not_found')
+                __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.not_found')
             );
         }
 
         return $this->sendResponse(
             $$MODEL_NAME_CAMEL$->toArray(),
-            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.backend.retrieved')
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.retrieved')
         );
     }
 
@@ -73,7 +73,7 @@ class $MODEL_NAME$APIController extends Controller
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             return $this->sendError(
-                __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.backend.not_found')
+                __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.not_found')
             );
         }
 
@@ -81,7 +81,7 @@ class $MODEL_NAME$APIController extends Controller
 
         return $this->sendResponse(
             $$MODEL_NAME_CAMEL$->toArray(),
-            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.backend.updated')
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.updated')
         );
     }
 
@@ -93,7 +93,7 @@ class $MODEL_NAME$APIController extends Controller
 
         if (empty($$MODEL_NAME_CAMEL$)) {
             return $this->sendError(
-                __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.backend.not_found')
+                __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.not_found')
             );
         }
 
@@ -101,7 +101,7 @@ class $MODEL_NAME$APIController extends Controller
 
         return $this->sendResponse(
             $id,
-            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.alerts.backend.deleted')
+            __('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.deleted')
         );
     }
 }

@@ -1,20 +1,20 @@
 <?php
 
 Breadcrumbs::for('admin.$MODEL_NAME_PLURAL_CAMEL$.index', function ($trail) {
-    $trail->push(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.labels.backend.management'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.index'));
+    $trail->push(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.labels.backend.management'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.index'));
 });
 
 Breadcrumbs::for('admin.$MODEL_NAME_PLURAL_CAMEL$.create', function ($trail) {
     $trail->parent('admin.$MODEL_NAME_PLURAL_CAMEL$.index');
-    $trail->push(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.labels.backend.create'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.create'));
+    $trail->push(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.labels.backend.create'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.create'));
 });
 
 Breadcrumbs::for('admin.$MODEL_NAME_PLURAL_CAMEL$.show', function ($trail, $id) {
     $trail->parent('admin.$MODEL_NAME_PLURAL_CAMEL$.index');
-    $trail->push(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.labels.backend.view'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.show', $id));
+    $trail->push(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.labels.backend.view'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.show', $id));
 });
 
 Breadcrumbs::for('admin.$MODEL_NAME_PLURAL_CAMEL$.edit', function ($trail, $id) {
     $trail->parent('admin.$MODEL_NAME_PLURAL_CAMEL$.index');
-    $trail->push(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.labels.backend.edit'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.edit', $id));
+    $trail->push(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.labels.backend.edit'), route('admin.$MODEL_NAME_PLURAL_CAMEL$.edit', $id));
 });
