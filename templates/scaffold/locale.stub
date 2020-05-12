@@ -2,7 +2,7 @@
 
 return [
 	'singular' => '$MODEL_NAME$',
-	'plural' => '$MODEL_NAME_PLURAL$',
+	'plural' => '$MODEL_NAME_PLURAL_HUMAN$',
 	'alerts' => [
 		'backend' => [
 			'created' => 'The $MODEL_NAME_SNAKE$ was successfully created.',
@@ -28,14 +28,14 @@ return [
 	],
 	'labels' => [
 		'backend' => [
-			'create' => 'Create $MODEL_NAME$',
-			'edit' => 'Edit $MODEL_NAME$',
-			'view' => 'View $MODEL_NAME$',
-			'management' => '$MODEL_NAME$ Management',
-			'actions' => '$MODEL_NAME$ Actions',
+			'create' => 'Create $MODEL_NAME_HUMAN$',
+			'edit' => 'Edit $MODEL_NAME_HUMAN$',
+			'view' => 'View $MODEL_NAME_HUMAN$',
+			'management' => '$MODEL_NAME_HUMAN$ Management',
+			'actions' => '$MODEL_NAME_HUMAN$ Actions',
 			'table' => [
 				'fields' => $FIELDS$,
-				'total' => '$MODEL_NAME$ total| $MODEL_NAME_PLURAL_CAMEL$ total',
+				'total' => '$MODEL_NAME_HUMAN$ total| $MODEL_NAME_PLURAL_HUMAN$ total',
 			],
 		],
 		'frontend' => [
@@ -43,11 +43,11 @@ return [
 	],
 	'menus' => [
 		'backend' => [
-			'all' => 'All $MODEL_NAME_PLURAL$',
-			'create' => 'Create $MODEL_NAME$',
-			'edit' => 'Edit $MODEL_NAME$',
-			'management' => '$MODEL_NAME$ Management',
-			'main' => '$MODEL_NAME_PLURAL$',
+			'all' => 'All $MODEL_NAME_PLURAL_HUMAN$',
+			'create' => 'Create $MODEL_NAME_HUMAN$',
+			'edit' => 'Edit $MODEL_NAME_HUMAN$',
+			'management' => '$MODEL_NAME_HUMAN$ Management',
+			'main' => '$MODEL_NAME_PLURAL_HUMAN$',
 		],
 	],
 	'navs' => [
