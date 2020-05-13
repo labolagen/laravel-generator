@@ -52,7 +52,7 @@ class $MODEL_NAME$Controller extends Controller
         /** @var $MODEL_NAME$ $$MODEL_NAME_CAMEL$ */
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::create($input);
 
-        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                 ->withFlashSuccess('$MODEL_NAME_HUMAN$ saved successfully.');
     }
 
@@ -69,7 +69,7 @@ class $MODEL_NAME$Controller extends Controller
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                     ->withFlashError('$MODEL_NAME_HUMAN$ not found');
         }
 
@@ -89,7 +89,7 @@ class $MODEL_NAME$Controller extends Controller
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                     ->withFlashError('$MODEL_NAME_HUMAN$ not found');
         }
 
@@ -110,14 +110,14 @@ class $MODEL_NAME$Controller extends Controller
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                     ->withFlashError('$MODEL_NAME_HUMAN$ not found');
         }
 
         $$MODEL_NAME_CAMEL$->fill($request->all());
         $$MODEL_NAME_CAMEL$->save();
 
-        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                 ->withFlashSuccess('$MODEL_NAME_HUMAN$ updated successfully.');
     }
 
@@ -136,13 +136,13 @@ class $MODEL_NAME$Controller extends Controller
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                     ->withFlashError('$MODEL_NAME_HUMAN$ not found');
         }
 
         $$MODEL_NAME_CAMEL$->delete();
 
-        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                 ->withFlashSuccess('$MODEL_NAME_HUMAN$ deleted successfully.');
     }
 }

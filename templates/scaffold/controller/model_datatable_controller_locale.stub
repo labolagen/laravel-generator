@@ -48,7 +48,7 @@ class $MODEL_NAME$Controller extends Controller
         /** @var $MODEL_NAME$ $$MODEL_NAME_CAMEL$ */
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::create($input);
 
-        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                 ->withFlashSuccess(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.created'));;
     }
 
@@ -65,7 +65,7 @@ class $MODEL_NAME$Controller extends Controller
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                     ->withFlashError(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.not_found'));
         }
 
@@ -85,7 +85,7 @@ class $MODEL_NAME$Controller extends Controller
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                     ->withFlashError(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.not_found'));
         }
 
@@ -106,14 +106,14 @@ class $MODEL_NAME$Controller extends Controller
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                     ->withFlashError(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.not_found'));
         }
 
         $$MODEL_NAME_CAMEL$->fill($request->all());
         $$MODEL_NAME_CAMEL$->save();
 
-        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                 ->withFlashSuccess(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.updated'));;
     }
 
@@ -132,13 +132,13 @@ class $MODEL_NAME$Controller extends Controller
         $$MODEL_NAME_CAMEL$ = $MODEL_NAME$::find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+            return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                     ->withFlashError(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.not_found'));
         }
 
         $$MODEL_NAME_CAMEL$->delete();
 
-        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.index'))
+        return redirect(route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.index'))
                 ->withFlashSuccess(__('$MODEL_LOCALE_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.alerts.backend.deleted'));;
     }
 }
